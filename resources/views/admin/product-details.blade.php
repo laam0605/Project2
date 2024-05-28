@@ -50,27 +50,45 @@
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
-            @include("admin.navbar")
+        @include("admin.navbar")
         <!-- Navbar End -->
 
 
         <!-- Blank Start -->
-        <div class="container-fluid pt-4 px-4">
-            <h3>Add Category</h3>
-            <form action="/admin/category-save" method="post" name="form1">
-                @csrf
-                <div class="mt-2 mb-2">
-                    <label for="">Category Name: </label>
-                    <input type="text" name="categoryName" class="form-control form-control-sm" pattern="[^0-9]*" title="Category Name cannot contains any numbers" required/>
-                </div>
-
-                <div class="d-flex justify-content-start mt-2 mb-2">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
-
-        </div>
-
+            <div class="container-fluid pt-4 px-4">
+                <h3>Product Details</h3>
+                <table class="table table-hover  table-striped">
+                    @foreach($product as $obj)
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{$obj->id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Product Name</th>
+                            <td>{{$obj->product_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{$obj->price}}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{$obj->description}}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
+                        </tr>
+                        <tr>
+                            <th>Category Name</th>
+                            <td>{{$obj->category_name}}</td>
+                        </tr>
+                        @endforeach
+                        </thead>
+                </table>
+                <a href="/admin/product-list" class="btn btn-primary">Go Back</a>
+            </div>
         <!-- Blank End -->
 
 

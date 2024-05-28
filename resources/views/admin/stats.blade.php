@@ -43,34 +43,21 @@
 
 
     <!-- Sidebar Start -->
-        @include("admin.sidebar")
+
     <!-- Sidebar End -->
 
 
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
-            @include("admin.navbar")
+        @include("admin.navbar")
         <!-- Navbar End -->
 
 
         <!-- Blank Start -->
-        <div class="container-fluid pt-4 px-4">
-            <h3>Add Category</h3>
-            <form action="/admin/category-save" method="post" name="form1">
-                @csrf
-                <div class="mt-2 mb-2">
-                    <label for="">Category Name: </label>
-                    <input type="text" name="categoryName" class="form-control form-control-sm" pattern="[^0-9]*" title="Category Name cannot contains any numbers" required/>
-                </div>
+            <div class="container-fluid pt-4 px-4">
 
-                <div class="d-flex justify-content-start mt-2 mb-2">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-            </form>
-
-        </div>
-
+            </div>
         <!-- Blank End -->
 
 

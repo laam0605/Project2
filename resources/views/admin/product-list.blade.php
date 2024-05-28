@@ -1,216 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>DASHMIN - Bootstrap Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Times New Roman", sans-serif;
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="icon">
 
-        }
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 2px solid #ddd;
-            /*border-radius: 10px 10px 7px 7px;*/
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-            position: absolute;
-        }
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        .table td {
-            padding: 8px;
-            text-align: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #dddddd;
-            font-weight: bold;
-        }
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-        .table td:hover {
-            background: #DDE3E0;
-        }
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/admincss/bootstrap.min.css" rel="stylesheet">
 
-        .table tbody tr.active-row {
-            font-weight: bold ;
-            color: #20c997;
-        }
-
-        .table-image {
-
-            width: 150px;
-            height: 70px;
-        }
-
-        h4 {
-            display: flex;
-            font-weight: bold;
-            color: #333;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 20px;
-            font-size: 40px;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .btn {
-
-            background-color: #0dcaf0;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, color 0.3s;
-            margin-left: 1850px;
-
-
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-            color: #ffee10;
-            box-shadow: 0 0 5px #ffee10;
-            text-shadow: 0 0 5px #ffee10;
-        }
-
-        .btn:hover::before {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px #ffee10;
-        }
-        .search-container {
-            position:sticky;
-            padding-bottom: 10px;
-        }
-
-        .search-input {
-
-            position: sticky;
-            width: 200px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-
-        }
-
-        .search-input:hover{
-            border-color: #0dcaf0;
-        }
-
-        .search-button {
-
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .search-button:hover {
-            background-color: #0056b3;
-            color: #ffee10;
-            box-shadow: 0 0 5px #ffee10;
-            text-shadow: 0 0 5px #ffee10;
-
-        }
-
-        .search-button:hover::before {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px #ffee10;
-        }
-
-        .ud {
-            font-size: 16px;
-            text-align: justify;
-
-        }
-        .ud:hover {
-            background-color: #20c997;
-        }
-
-        .view-all {
-            margin-left: 15px;
-            font-weight: bold;
-
-        }
-
-        .view-all:hover {
-            color: #20c997; /* Darker color on hover */
-        }
-
-
-
-    </style>
+    <!-- Template Stylesheet -->
+    <link href="/admincss/style.css" rel="stylesheet">
 </head>
+
 <body>
-<h4>Product List</h4>
-
-<a href="/admin/product-add" class="btn btn-primary btn-sm"  >Add</a>
-
-<form action="/admin/product-search" method="get">
-    <div class="search-container">
-        <input type="text" name="data" value="{{$data}}" class="search-input" placeholder="  Search by product name ...">
-        <a href="/admin/product-list" class="view-all">View All</a>
+<div class="container-fluid position-relative bg-white d-flex p-0">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
-    <div>
-        <button class="search-button">Tìm</button>
-    </div>
-</form>
-
-<table class="table table-hover table-bordered table-striped">
-    <thead>
-    <tr>
-        <td style="background: #9EF9C3" >Id</td>
-        <td style="background: #9EF9C3">Product Name</td>
-        <td style="background: #9EF9C3">Price</td>
-        <td style="background: #9EF9C3">Description</td>
-        <td style="background: #9EF9C3">Category Name</td>
-        <td style="background: #9EF9C3" class="table-image">Image</td>
+    <!-- Spinner End -->
 
 
-        <td></td>
-    </tr>
-    </thead>
-
-    <tbody>
-    @foreach($products as $obj)
-        <tr>
-            <td>{{$obj->id}}</td>
-            <td>{{$obj->product_name}}</td>
-            <td>{{$obj->price}}  $</td>
-            <td>{{$obj->description}}</td>
-            <td>{{$obj->category_name}}</td>
-            <td><img height="50" src="/image_product/{{$obj->image}}" alt="" class="table-image"></td>
+    <!-- Sidebar Start -->
+        @include("admin.sidebar")
+    <!-- Sidebar End -->
 
 
-            <td class="ud"><a href="/admin/product-delete/{{$obj->id}}" style="color: red">Delete</a></td>
-            <td class="ud"><a href="/admin/product-edit/{{$obj->id}}">Edit</a></td>
+    <!-- Content Start -->
+    <div class="content">
+        <!-- Navbar Start -->
+        @include("admin.navbar")
+        <!-- Navbar End -->
 
-        </tr>
-        @if(session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+
+        <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <h3>Product List</h3>
+                <form action="/admin/product-search" method="get">
+                    <div class="row">
+                        <div class="col-10">
+                            <input placeholder="Search Something......" class="form-control form-control-sm" type="text" name="data" value="{{$data}}">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                        </div>
+                        <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/product-list">View All</a></span></div>
+                    </div>
+                </form>
+
+                <a href="/admin/product-add" class="btn btn-primary mt-2 mb-2">Add Product</a>
+
+                <table class="table table-hover  table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Product Name</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Image</th>
+                        <th class="text-center">Category Name</th>
+                        <th colspan="3" class="text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($products as $obj)
+                        <tr>
+                            <td class="text-center">{{$obj->id}}</td>
+                            <td class="text-center">{{$obj->product_name}}</td>
+                            <td class="text-center">{{$obj->price}}</td>
+                            <td class="text-center">{{$obj->description}}</td>
+                            <td class="text-center"><img height="50" src="/image_product/{{$obj->image}}" alt=""></td>
+                            <td class="text-center">{{$obj->category_name}}</td>
+                            <td class="text-center">
+                                <a href="/admin/product-details/{{$obj->id}}" class="btn btn-outline-success btn-sm">Details</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/admin/product-edit/{{$obj->id}}" class="btn btn-outline-primary btn-sm">Edit</a>
+                            </td>
+                            <td class="text-center">
+                                <a onclick="return confirm('Are you sure?')" href="/admin/product-delete/{{$obj->id}}" class="btn btn-outline-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-        @endif
-    @endforeach
-    </tbody>
+        <!-- Blank End -->
 
-</table>
+
+        <!-- Footer Start -->
+
+        <!-- Footer End -->
+    </div>
+    <!-- Content End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/lib/chart/chart.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/waypoints/waypoints.min.js"></script>
+<script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/lib/tempusdominus/js/moment.min.js"></script>
+<script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/js/main.js"></script>
 </body>
+
 </html>

@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminIndexController extends Controller
 {
-    public function adminIndex()
-    {
-
-        return view("admin/admin-index-redirect");
+    public function adminIndex(){
+        $activeMenu = "dashboard";
+        return view('admin/adminIndex',
+            [
+                "activeMenu" => $activeMenu
+            ]);
     }
 }
