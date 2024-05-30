@@ -91,43 +91,75 @@
         .form-group button:hover {
             background-color: aquamarine;
         }
+
         @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
     </style>
 </head>
 <body>
 <div class="register-container">
-    <form action="/registerPost" method="post">
+    <form action="" method="post">
         @csrf
         <div class="form-group">
             <label for="">FullName</label>
-            <input type="text" name="fullName" placeholder="Full Name">
+            <input type="text" name="fullName" placeholder="Full Name" required>
         </div>
 
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" name="email" placeholder="Email">
+            <input type="email" name="email" placeholder="Email" required>
         </div>
         <div class="form-group">
             <label for="">Password</label>
-            <input type="password" name="password" placeholder="Password" id="password">
+            <input type="password" name="password" placeholder="Password" id="password" required onkeyup='check();'>
+
             <img src="image/eye-closed.png" id="eyeicon">
         </div>
         <div class="form-group">
-            <button type="submit">Register</button>
+            <label for="">Confirm Password</label>
+            <input type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation" required onkeyup='check();'>
+
+            <span id='message'></span>
+        </div>
+        @if ($errors->has('password'))
+            <span class="text-danger">{{ $errors->first('password') }}</span>
+        @endif
+        <div class="form-group">
+            <button type="submit" disabled>Register</button>
+        </div>
+        <div class="form-group">
+            You have an account?
+            <a href="/login">Login Here</a>
         </div>
     </form>
 </div>
 
+
 <script>
     let eyeicon = document.getElementById("eyeicon");
     let password = document.getElementById("password");
+    let password_confirmation = document.getElementById("password_confirmation");
 
     eyeicon.onclick = function (){
-        if (password.type == "password"){
+        if (password.type == "password" || password_confirmation.type == "password"){
             password.type = "text";
+            password_confirmation.type = "text";
         }else {
             password.type = "password";
+            password_confirmation.type = "password";
+        }
+    }
+
+    var check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('password_confirmation').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password matches';
+            document.querySelector("button[type='submit']").disabled = false;
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password do not match';
+            document.querySelector("button[type='submit']").disabled = true;
         }
     }
 </script>

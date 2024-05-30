@@ -102,12 +102,12 @@
         @csrf
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
             <label for="">Password</label>
-            <input type="password" name="password" placeholder="Password" id="password">
+            <input type="password" name="password" placeholder="Password" id="password" required>
             <img src="image/eye-closed.png" id="eyeicon" >
         </div>
         <div class="form-group">

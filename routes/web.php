@@ -8,7 +8,6 @@ use App\Http\Controllers\AdminProductController;
 //use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminAuthController;
 
 Route::get('/', [ClientIndexController::class, "clientIndex"]);
@@ -19,7 +18,6 @@ Route::get('/showcart', [CartController::class, "showCart"]);
 Route::get('/cartRemove/{id}', [CartController::class, "cartRemove"]);
 Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
 Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
-
 
 
 // ADMIN
@@ -50,8 +48,12 @@ Route::get("/admin/product-search", [AdminProductController::class, "productSear
 
 // ADMIN STATS
 
+// CLIENT LOGIN & REGISTER
+Route::get('/login', [UserController::class, "login"]);
+Route::get('/register', [UserController::class, "register"]);
+Route::post('/register', [UserController::class, "postRegister"]);
 
-require  __DIR__. '/web_login.php';
+
 
 require  __DIR__. '/web_client.php';
 
