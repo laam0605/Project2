@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaamDuyeBookStore</title>
+    <title>BookStore</title>
     <link rel="icon" href="img/book-logo.png" type="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -17,7 +17,7 @@
 
     <div class="logo-container">
         <img src="img/book-logo.png" alt="book-logo">
-        <a href="ClientIndex" class="logo">{{$setting->web_name}}</a>
+        <a href="ClientIndex" class="logo"></a>
     </div>
 
     <nav class="nav">
@@ -466,9 +466,9 @@
         <div class="col-footer">
             <h4>Contact us</h4>
             <ul>
-                <li><a href=""><i class="fa fa-location-arrow"></i>{{$setting->address}}</a></li>
-                <li><a href=""><i class="fas fa-mobile-alt"></i>{{$setting->phone_number}}</a></li>
-                <li><a href=""><i class="far fa-envelope"></i>{{$setting->email}}</a></li>
+                <li><a href=""><i class="fa fa-location-arrow"></i></a></li>
+                <li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
+                <li><a href=""><i class="far fa-envelope"></i></a></li>
                 <li><a href=""><i class="fas fa-globe-europe"></i> www.LBookStore.com</a></li>
             </ul>
         </div>
