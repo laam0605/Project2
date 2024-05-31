@@ -25,7 +25,7 @@
                 <div class = "product-imgs">
                     <div class = "img-display">
                         <div class = "img-showcase">
-                            <img src = "/image/{{$products->image}}">
+                            <img src = "/image_product/{{$products->image}}">
                         </div>
                     </div>
                 </div>
