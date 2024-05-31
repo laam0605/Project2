@@ -117,7 +117,7 @@
                     <div class="featured-icons">
 {{--                        <a href="#" class="fas fa-search"></a>--}}
 {{--                        <a href="#" class="fas fa-heart"></a>--}}
-                        <a href="product-details/{{$obj->id}}" class="fas fa-eye"></a>
+                        <a href="/product-details/{{$obj->id}}" class="fas fa-eye"></a>
                     </div>
                     <div class="images">
                         <img src="/image_product/{{$obj->image}}">
@@ -126,7 +126,7 @@
                         <h3><a >{{$obj->product_name}}</h3>
                         <div class="price">${{$obj->price}}<span>$821.88</span></div>
                         <p class="text-dark fs-5 fw-bold mb-0">{{$obj->description}}</p>
-                        <a href="#" class="featured-btn">Add to Cart</a>
+{{--                        <a href="#" class="featured-btn">Add to Cart</a>--}}
                     </div>
                 </div>
         @endforeach
@@ -422,7 +422,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>

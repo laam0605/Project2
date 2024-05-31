@@ -110,7 +110,7 @@
                         <h3><a >{{$obj->product_name}}</h3>
                         <div class="price">${{$obj->price}}<span>$821.88</span></div>
                         <p class="text-dark fs-5 fw-bold mb-0">{{$obj->description}}</p>
-                        <a href="cart" class="featured-btn">Add to Cart</a>
+{{--                        <a href="cart" class="featured-btn">Add to Cart</a>--}}
                     </div>
                 </div>
             @endforeach
