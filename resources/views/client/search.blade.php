@@ -121,28 +121,9 @@
 </head>
 
 <body>
-<header>
-    <div class="logo-container">
-        <img src="img/book-logo.png" alt="book-logo">
-        <a href="#" class="logo">lBookStore</a>
-    </div>
-
-    <nav class="nav">
-        <a href="ClientIndex">Home<span></span></a>
-        <a href="about-us">About<span></span></a>
-        <a href="shop.html">Shop<span></span></a>
-        <a href="feedback">Feedback<span></span></a>
-        <a href="contact">Contact<span></span></a>
-        <a href="genre.html">Genre<span></span></a>
-    </nav>
-
-    <div class="header-icons">
-        <a href="search"><i class="fa fa-search"></i></a>
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
-        <a href="wishlist.html"><i class="fa fa-heart"></i></a>
-        <a href="auth-login" class="login-btn">Sign In</a>
-    </div>
-</header>
+{{--HEADER--}}
+@include('client.header')
+{{--HEADER--}}
 
 <section>
     <input class="container" type="text" id="searchInput" placeholder="Search...">
@@ -194,58 +175,15 @@
 </section>
 
 
-<footer class="footer-area">
-    <div class="footer">
-        <div class="col-footer">
-            <h4>LBookStore</h4>
-            <p>We are an online bookstore that offers an extensive collection of books designed to meet diverse interests and preferences.</p>
-            <div class="social">
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-twitter"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-        <div class="col-footer">
-            <h4>Main Menu</h4>
-            <ul>
-                <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                <li><a href="about-us"><i class="fas fa-chevron-right"></i> About</a></li>
-                {{--                <li><a href="shop.html"><i class="fas fa-chevron-right"></i> Shop</a></li>--}}
-                <li><a href="feedback"><i class="fas fa-chevron-right"></i> Feedback</a></li>
-                <li><a href="contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-            </ul>
-        </div>
-        <div class="col-footer">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="FAQs.html"><i class="fas fa-chevron-right"></i> FAQs</a></li>
-                <li><a href="privacypolicy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                <li><a href="terms&conditions.html"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
-            </ul>
-        </div>
-        <div class="col-footer">
-            <h4>Contact us</h4>
-            <ul>
-                <li><a href=""><i class="fa fa-location-arrow"></i>Viet Nam</a></li>
-                <li><a href=""><i class="fas fa-mobile-alt"></i> +84 123456789</a></li>
-                <li><a href=""><i class="far fa-envelope"></i> lamtran7065@gmail.com</a></li>
-                <li><a href=""><i class="fas fa-globe-europe"></i> www.LBookStore.com</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="copyright">
-        <p>LBookStore COPYRIGHT &copy; 2023. ALL RIGHTS RESERVED.</p>
-    </div>
-</footer>
+{{--FOOTER--}}
+@include("client.footer")
+{{--FOOTER--}}
 
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 <!--Custom JS file link-->
 <script src="js/script.js"></script>
-
-
 
 
 
