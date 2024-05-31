@@ -7,7 +7,7 @@
 
     <nav class="nav">
         <a href="/ClientIndex">Home<span></span></a>
-        <a href=/about-us">About<span></span></a>
+        <a href="/about-us">About<span></span></a>
         <a href="shop.html">Shop<span></span></a>
         <a href="/feedback">Feedback<span></span></a>
         <a href="/contact">Contact<span></span></a>

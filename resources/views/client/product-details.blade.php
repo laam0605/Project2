@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 </head>
+<style>
+    img {
+        width: 600px;
+        height: 860px;
+    }
+</style>
 
 <body>
 
