@@ -9,6 +9,8 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminController;
+
 
 
 Route::get('/', function () {
@@ -21,34 +23,34 @@ Route::get('/cartRemove/{id}', [CartController::class, "cartRemove"]);
 Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
 Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
+
 // ADMIN MIDDLEWARE
+Route::get('/logon', [AdminController::class, "logon"]);
+Route::post('/logon', [AdminController::class, "postLogon"]);
+Route::get('/signout', [AdminController::class, "signOut"]);
+
 Route::prefix('admin')->middleware('admin')->group(function(){
 // ADMIN
-    Route::get('/', function () {
-        return redirect('/admin/index');
-    });
-    Route::get('/admin/index', [AdminIndexController::class, "adminIndex"]);
-    Route::get('/Admin-User-Account', [UserController::class, "getAll"]);
-    Route::get('/AdminUser-delete/{id}', [UserController::class, "delete"]);
+    Route::get('/', [AdminIndexController::class, "adminIndex"]);
 
 // ADMIN CATEGORY
-    Route::get('/admin/category-list', [AdminCategoryController::class, "getAll"]);
-    Route::get('/admin/category-delete/{id}', [AdminCategoryController::class, "delete"]);
-    Route::get('/admin/category-add', [AdminCategoryController::class, "add"]);
-    Route::post('/admin/category-save', [AdminCategoryController::class, "save"]);
-    Route::get('/admin/category-edit/{id}', [AdminCategoryController::class, "edit"]);
-    Route::post("/admin/category-update/{id}", [AdminCategoryController::class, "update"]);
-    Route::get("/admin/category-search", [AdminCategoryController::class, "categorySearch"]);
+    Route::get('/category-list', [AdminCategoryController::class, "getAll"]);
+    Route::get('/category-delete/{id}', [AdminCategoryController::class, "delete"]);
+    Route::get('/category-add', [AdminCategoryController::class, "add"]);
+    Route::post('/category-save', [AdminCategoryController::class, "save"]);
+    Route::get('/category-edit/{id}', [AdminCategoryController::class, "edit"]);
+    Route::post("/category-update/{id}", [AdminCategoryController::class, "update"]);
+    Route::get("/category-search", [AdminCategoryController::class, "categorySearch"]);
 
 // ADMIN PRODUCT
-    Route::get('/admin/product-list', [AdminProductController::class, "getAll"]);
-    Route::get('/admin/product-delete/{id}', [AdminProductController::class, "delete"]);
-    Route::get('/admin/product-add', [AdminProductController::class, "add"]);
-    Route::post('/admin/product-save', [AdminProductController::class, "save"]);
-    Route::get('/admin/product-edit/{id}', [AdminProductController::class, "edit"]);
-    Route::post("/admin/product-update/{id}", [AdminProductController::class, "update"]);
-    Route::get('/admin/product-details/{id}', [AdminProductController::class, "details"]);
-    Route::get("/admin/product-search", [AdminProductController::class, "productSearch"]);
+    Route::get('/product-list', [AdminProductController::class, "getAll"]);
+    Route::get('/product-delete/{id}', [AdminProductController::class, "delete"]);
+    Route::get('/product-add', [AdminProductController::class, "add"]);
+    Route::post('/product-save', [AdminProductController::class, "save"]);
+    Route::get('/product-edit/{id}', [AdminProductController::class, "edit"]);
+    Route::post("/product-update/{id}", [AdminProductController::class, "update"]);
+    Route::get('/product-details/{id}', [AdminProductController::class, "details"]);
+    Route::get("/product-search", [AdminProductController::class, "productSearch"]);
 
 // ADMIN ORDER
 
@@ -57,7 +59,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 });
 
 
-// CLIENT LOGIN & REGISTER & LOGOUT
+// CLIENT MIDDLEWARE
 Route::get('/login', [UserController::class, "login"]);
 Route::post('/login', [UserController::class, "postLogin"]);
 Route::get('/register', [UserController::class, "register"]);

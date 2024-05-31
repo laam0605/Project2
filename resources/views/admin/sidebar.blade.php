@@ -2,7 +2,7 @@
 
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-light navbar-light">
-        <a href="/admin/index" class="navbar-brand mx-4 mb-3">
+        <a href="/admin" class="navbar-brand mx-4 mb-3">
             <h5 class="text-primary">ADMIN DASHBOARD</h5>
         </a>
 
@@ -17,7 +17,7 @@
         {{--            </div>--}}
 
         <div class="navbar-nav w-100">
-            <a href="/admin/index" class="nav-item nav-link @if ($activeMenu === 'dashboard') active @endif"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/admin" class="nav-item nav-link @if ($activeMenu === 'dashboard') active @endif"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <a href="/admin/product-list" class="nav-item nav-link @if ($activeMenu === 'product') active @endif"><i class="fa fa-th me-2"></i>Product</a>
             <a href="/admin/category-list" class="nav-item nav-link @if ($activeMenu === 'category') active @endif"><i class="fa fa-th me-2"></i>Category</a>
             <a href="/admin/order-list" class="nav-item nav-link @if ($activeMenu === 'order') active @endif"><i class="fa fa-th me-2"></i>Order</a>
