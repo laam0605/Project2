@@ -189,7 +189,7 @@
                         <td>
 
                             <div class="cart-info">
-                                <img src="image/{{$obj->image}}" alt="wew" width="250" height="auto" />
+                                <img src="/image_product/{{$obj->image}}" alt="wew" width="250" height="auto" />
                                 <div>
                                     <h3>{{$obj->product_name}}"</h3>
                                     <p>{{$obj->price}}</p>
