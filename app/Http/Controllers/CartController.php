@@ -90,7 +90,7 @@ public function addToCart($id, $quantity) {
                 "address" =>$address,
                 "phone_number" =>$phone_number,
                 "total" => $total,
-                "created_at" =>Carbon::now()
+                "created_at" =>Carbon::now('Asia/Ho_Chi_Minh')
             ]);
 
         //Xóa giỏ hàng

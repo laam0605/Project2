@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Success !</title>
     <link rel="icon" href="img/book-logo.png" type="image">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
     <style>
-
         .header-container {
             display: flex;
             align-items: center;
@@ -66,12 +65,12 @@
 
 
 
-    {{--FOOTER--}}
-    @include("client.footer")
-    {{--FOOTER--}}
+{{--FOOTER--}}
+@include("client.footer")
+{{--FOOTER--}}
 
 
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
