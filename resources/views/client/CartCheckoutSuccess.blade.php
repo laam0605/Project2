@@ -60,14 +60,13 @@
     <div id="page-wrap">
             <div class="small-container cart-page">
                 <h1>Checkout Successfully</h1>
+                <a href="/"><h2 style="text-align: center;">GO BACK</h2></a>
             </div>
     </div>
 
 
 
-{{--FOOTER--}}
-@include("client.footer")
-{{--FOOTER--}}
+
 
 
 <!--Custom JS file link-->

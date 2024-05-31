@@ -202,21 +202,21 @@
                 @csrf
                 <div>
                     <label for="">Full Name</label>
-                    <input type="text" name="fullName" placeholder="Enter your full name" id="check-input">
+                    <input type="text" name="fullName" placeholder="Enter your full name" id="check-input" required>
                 </div>
             </div>
 
                 <div id="address">
                     <div>
                         <label for="">Address</label>
-                        <input type="text" name="address" placeholder="Enter your address" id="check-input">
+                        <input type="text" name="address" placeholder="Enter your address" id="check-input" required>
                     </div>
                 </div>
 
                 <div id="phone_number">
                     <div>
                         <label for="">Phone Number</label>
-                        <input type="text" name="phone_number" placeholder="Enter your phone number" id="check-input">
+                        <input type="text" name="phone_number" placeholder="Enter your phone number" id="check-input" required>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="image/{{$obj->image}}" alt="wew" width="150" height="auto" />
+                        <img src="/image_product/{{$obj->image}}" alt="img" width="150" height="auto" />
                         <div>
                             <h3>{{$obj->product_name}}</h3>
                             <p>Price: {{$obj->price}}$</p>
@@ -297,6 +297,6 @@
     }
 </script>
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>

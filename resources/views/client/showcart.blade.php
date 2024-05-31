@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LBookStore | Cart</title>
     <link rel="icon" href="img/book-logo.png" type="image">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
 
@@ -191,9 +191,9 @@
                             <div class="cart-info">
                                 <img src="/image_product/{{$obj->image}}" alt="wew" width="250" height="auto" />
                                 <div>
-                                    <h3>{{$obj->product_name}}"</h3>
-                                    <p>{{$obj->price}}</p>
-                                    <p>{{$obj->description}}</p>
+                                    <h3>Name: {{$obj->product_name}}"</h3>
+                                    <p>Price: {{$obj->price}}</p>
+                                    <p>Description: {{$obj->description}}</p>
                                     <a href="cartRemove/{{$obj->id}}"><button class="cart">Remove Item</button></a>
                                 </div>
                             </div>
@@ -237,6 +237,6 @@
     }
 </script>
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 </body>
 </html>
