@@ -47,14 +47,14 @@
     <div class="header-icons">
         <a href="/search"><i class="fa fa-search"></i></a>
         <a href="/cart"><i class="fa fa-shopping-cart"></i></a>
-        <i class="fa fa-user"></i>
+{{--        <i class="fa fa-sign-out"></i>--}}
         @if(\Illuminate\Support\Facades\Auth::check())
             <!-- Dropdown Menu -->
             <div class="login-dropdown">
                 <a href="#" class="login-btn">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
-                <div class="login-dropdown-content">
-                    <a href="/logout">Logout</a>
-                </div>
+{{--                <div class="login-dropdown-content">--}}
+                    <a href="/logout"><i class="fa fa-sign-out"></i></a>
+{{--                </div>--}}
             </div>
         @else
             <a href="/login" class="login-btn">Login</a>
