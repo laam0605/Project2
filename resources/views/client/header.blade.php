@@ -16,7 +16,12 @@
     <div class="header-icons">
         <a href="/search"><i class="fa fa-search"></i></a>
         <a href="/cart"><i class="fa fa-shopping-cart"></i></a>
-        <a href="wishlist.html"><i class="fa fa-heart"></i></a>
-        <a href="account.html" class="login-btn">Sign In</a>
+        <i class="fa fa-user"></i>
+        @if(\Illuminate\Support\Facades\Auth::check())
+            <a href="#" class="login-btn">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+        @else
+            <a href="/login" class="login-btn">Login</a>
+        @endif
+
     </div>
 </header>
