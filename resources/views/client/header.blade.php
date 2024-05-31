@@ -46,7 +46,7 @@
 
     <div class="header-icons">
         <a href="/search"><i class="fa fa-search"></i></a>
-        <a href="/cart"><i class="fa fa-shopping-cart"></i></a>
+        <a href="/cart"><i class="fa fa-shopping-cart" style="padding-left: 2px">({{ $cart ? count($cart) : 0 }})</i></a>
 {{--        <i class="fa fa-sign-out"></i>--}}
         @if(\Illuminate\Support\Facades\Auth::check())
             <!-- Dropdown Menu -->

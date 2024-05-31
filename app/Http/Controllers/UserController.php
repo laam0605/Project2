@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -56,6 +57,9 @@ class UserController extends Controller
 
     public function logout() {
         Auth::logout();
+        Session::forget("cart");
+        Session::flush();
+        Session::save();
         return redirect('/login');
     }
 }

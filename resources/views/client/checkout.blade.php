@@ -198,24 +198,32 @@
             <div class="small-container cart-page">
                 <input type="hidden" name="total" value="{{$total}}">
                 <h1>Checkout</h1>
+{{--                <div id="email">--}}
+{{--                    @csrf--}}
+{{--                    <div>--}}
+{{--                        <label for="">Email: </label>--}}
+{{--                        <input type="email" name="email" placeholder="Enter your Email" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" required>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
             <div id="fullName">
                 @csrf
                 <div>
-                    <label for="">Full Name</label>
+                    <label for="">Full Name: </label>
                     <input type="text" name="fullName" placeholder="Enter your full name" id="check-input" required>
                 </div>
             </div>
 
                 <div id="address">
                     <div>
-                        <label for="">Address</label>
+                        <label for="">Address: </label>
                         <input type="text" name="address" placeholder="Enter your address" id="check-input" required>
                     </div>
                 </div>
 
                 <div id="phone_number">
                     <div>
-                        <label for="">Phone Number</label>
+                        <label for="">Phone Number: </label>
                         <input type="text" name="phone_number" placeholder="Enter your phone number" id="check-input" required>
                     </div>
                 </div>
