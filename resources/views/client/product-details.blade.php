@@ -81,6 +81,7 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 <section class="related">
@@ -97,7 +98,7 @@
                         <a href="{{$obj->id}}" class="fas fa-eye"></a>
                     </div>
                     <div class="images">
-                        <img src="/image/{{$obj->image}}">
+                        <img src="/image_product/{{$obj->image}}" style="height: 200px; width: 200px">
                     </div>
                     <div class="content">
                         <h3><a >{{$obj->product_name}}</h3>

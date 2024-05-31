@@ -120,7 +120,7 @@
                         <a href="product-details/{{$obj->id}}" class="fas fa-eye"></a>
                     </div>
                     <div class="images">
-                        <img src="/image_product/{{$obj->image}}">
+                        <img src="/image_product/{{$obj->image}}" style="width: 200px; height: 200px">
                     </div>
                     <div class="content">
                         <h3><a >{{$obj->product_name}}</h3>
