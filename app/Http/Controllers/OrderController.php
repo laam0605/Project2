@@ -54,8 +54,23 @@ class OrderController extends Controller
             }
         }
 
+        $result2 = DB::table("orders")
+            ->selectRaw("YEAR(created_at) year, SUM(total) revenue")
+            ->where("status", "RECEIVED")
+            ->groupByRaw("YEAR(created_at)")
+            ->get();
+
+        $obj2 = $result2[0];
+
+        foreach ($result2 as $i => $obj){
+            if($obj2->revenue < $obj->revenue){
+                $obj2 = $obj;
+            }
+        }
+
         return view ("admin.stats",[
             "obj1" => $obj1,
+            "obj2" => $obj2,
             "activeMenu" => $activeMenu,
         ]);
     }
