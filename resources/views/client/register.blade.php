@@ -111,13 +111,13 @@
         </div>
         <div class="form-group">
             <label for="">Password</label>
-            <input type="password" name="password" placeholder="Password" id="password" required onkeyup='check();'>
+            <input type="password" name="password" placeholder="Password (Min 3 characters)" id="password" required onkeyup='check();'>
 
             <img src="image/eye-closed.png" id="eyeicon">
         </div>
         <div class="form-group">
             <label for="">Confirm Password</label>
-            <input type="password" name="password_confirmation" placeholder="Confirm Password" id="password_confirmation" required onkeyup='check();'>
+            <input type="password" name="password_confirmation" placeholder="Confirm Password (Min 3 characters)" id="password_confirmation" required onkeyup='check();'>
 
             <span id='message'></span>
         </div>

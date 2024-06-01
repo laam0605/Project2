@@ -1,7 +1,7 @@
 <footer class="footer-area">
     <div class="footer">
         <div class="col-footer">
-            <h4>LBookStore</h4>
+            <h4>BookStore</h4>
             <p>We are an online bookstore that offers an extensive collection of books designed to meet diverse interests and preferences.</p>
             <div class="social">
                 <a href=""><i class="fab fa-facebook-f"></i></a>

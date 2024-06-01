@@ -10,6 +10,7 @@ class ClientIndexController extends Controller
 {
     public function clientIndex()
     {
+        $cart = Session::get("cart");
         $setting = DB::table("setting")
             ->first();
 
@@ -17,7 +18,8 @@ class ClientIndexController extends Controller
             ->get();
         return view("client/ClientIndex",[
             "products" => $products,
-            "setting" => $setting
+            "setting" => $setting,
+            "cart" => $cart
         ]);
 
     }
@@ -44,6 +46,7 @@ class ClientIndexController extends Controller
     }
 
     public function productDetails($id) {
+        $cart = Session::get("cart");
 
         $products = DB::table("product")
             ->where("id",$id)
@@ -60,7 +63,8 @@ class ClientIndexController extends Controller
 
             "products" => $products,
             "productRelated" =>$productRelated,
-            "setting" =>$setting
+            "setting" =>$setting,
+            "cart" => $cart
 //            "quantity"=>$quantity
         ]);
     }

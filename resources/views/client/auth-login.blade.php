@@ -98,11 +98,11 @@
 </head>
 <body>
 <div class="login-container">
-    <form action="/loginPost" method="post">
+    <form action="" method="post">
         @csrf
         <div class="form-group">
             <label for="">Email</label>
-            <input type="text" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
@@ -110,6 +110,13 @@
             <input type="password" name="password" placeholder="Password" id="password" required>
             <img src="image/eye-closed.png" id="eyeicon" >
         </div>
+
+        <div class="form-group">
+            @if ($message = Session::get('error'))
+                    <strong style="color: red">{{ $message }}</strong>
+            @endif
+        </div>
+
         <div class="form-group">
             <button type="submit">Login</button>
         </div>
