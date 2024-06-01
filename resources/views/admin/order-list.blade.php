@@ -43,7 +43,7 @@
 
 
     <!-- Sidebar Start -->
-
+    @include("admin.sidebar")
     <!-- Sidebar End -->
 
 
@@ -54,11 +54,73 @@
         <!-- Navbar End -->
 
 
+
         <!-- Blank Start -->
         <div class="container-fluid pt-4 px-4">
+            <h3>Order List</h3>
+            <form action="/admin/product-search" method="get">
+                <div class="row">
+                    <div class="col-10">
+                        <input placeholder="Search Something......" class="form-control form-control-sm" type="text" name="data" value="">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                    </div>
+                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/product-list">View All</a></span></div>
+                </div>
+            </form>
 
+
+            <table class="table table-hover  table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Full Name</th>
+                    <th class="text-center">Address</th>
+                    <th class="text-center">Phone</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center">Status</th>
+                    <th colspan="3" class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($orders as $obj)
+                    <tr>
+                        <td class="text-center">{{$obj->id}}</td>
+                        <td class="text-center">{{$obj->full_name}}</td>
+                        <td class="text-center">{{$obj->address}}</td>
+                        <td class="text-center">{{$obj->phone}}</td>
+                        <td class="text-center">{{$obj->total}}</td>
+                        <td class="text-center">{{$obj->status}}</td>
+
+                        @if($obj->status === 'PENDING')
+                            <td class="text-center">
+                                <a href="/admin/orders-update-status/{{$obj -> id}}/CONFIRMED" class="btn btn-outline-success btn-sm">Confirm</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/admin/orders-update-status/{{$obj -> id}}/CANCELED" class="btn btn-outline-danger btn-sm">Cancel</a>
+                            </td>
+                        @endif
+                        @if($obj->status === 'CONFIRMED')
+                            <td class="text-center">
+                                <a href="/admin/orders-update-status/{{$obj -> id}}/SHIPPING" class="btn btn-outline-warning btn-sm">SHIPPING</a>
+                            </td>
+                        @endif
+                        @if($obj->status === 'SHIPPING')
+                            <td class="text-center">
+                                <a href="/admin/orders-update-status/{{$obj -> id}}/RECEIVED" class="btn btn-outline-warning btn-sm">Received</a>
+                            </td>
+                        @endif
+{{--                        <td class="text-center">--}}
+{{--                            <a onclick="return confirm('Are you sure?')" href="/admin/product-delete/{{$obj->id}}" class="btn btn-outline-danger btn-sm">Delete</a>--}}
+{{--                        </td>--}}
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
         <!-- Blank End -->
+
 
 
         <!-- Footer Start -->

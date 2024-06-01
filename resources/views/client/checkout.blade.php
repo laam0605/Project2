@@ -224,7 +224,7 @@
                 <div id="phone_number">
                     <div>
                         <label for="">Phone Number: </label>
-                        <input type="text" name="phone_number" placeholder="Enter your phone number" id="check-input" required>
+                        <input type="text" name="phone" placeholder="Enter your phone number" id="check-input" required>
                     </div>
                 </div>
             </div>

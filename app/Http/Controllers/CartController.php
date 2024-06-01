@@ -78,20 +78,39 @@ public function addToCart($id, $quantity) {
     }
 
     public function cartCheckout(Request $request) {
+        //date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $total = $request->total;
+        $status = "PENDING";
+
         $fullName = $request->fullName;
         $address = $request->address;
-        $phone_number = $request->phone_number;
-        $total = $request->total;
-//        $status = $request->status;
+        $phone = $request->phone;
 
-        DB::table("orders")
-            ->insert([
-                "full_name" =>$fullName,
-                "address" =>$address,
-                "phone_number" =>$phone_number,
+        $id = DB::table("orders")
+            // insertGetId: insert de lay Id
+            ->insertGetId([
+                "full_name" => $fullName,
+                "address" => $address,
+                "phone" => $phone,
                 "total" => $total,
-                "created_at" =>Carbon::now('Asia/Ho_Chi_Minh')
+                "status" => "PENDING",
+                "created_at" => date("Y-m-d H:i:s"),
             ]);
+
+        // them san pham, quantity, price vao order_detail
+        {
+            $cart = Session::get('cart');
+
+            foreach ($cart as $obj){
+                DB::table("order_details")
+                    ->insert([
+                        'order_id' => $id,
+                        'product_id' => $obj->id,
+                        'price' => $obj->price,
+                        'quantity' => $obj->quantity
+                    ]);
+            }
+        }
 
         //Xóa giỏ hàng
         {

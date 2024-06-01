@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -53,6 +54,8 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get("/product-search", [AdminProductController::class, "productSearch"]);
 
 // ADMIN ORDER
+    Route::get('/order-list', [OrderController::class, "getAll"]);
+    Route::get('/orders-update-status/{id}/{status}', [OrderController::class, "ordersUpdateStatus"]);
 
 // ADMIN STATS
 
