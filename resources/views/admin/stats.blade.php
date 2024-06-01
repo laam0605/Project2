@@ -43,7 +43,7 @@
 
 
     <!-- Sidebar Start -->
-
+        @include('admin.sidebar')
     <!-- Sidebar End -->
 
 
@@ -56,7 +56,14 @@
 
         <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-
+                <h3>Statistics</h3>
+                <div class="row">
+                    <div class="col-3">
+                        <h5>Doanh thu lon nhat</h5>
+                        <p>thang: {{$obj1->month}}</p>
+                        <p>tong tien: {{$obj1->revenue}}</p>
+                    </div>
+                </div>
             </div>
         <!-- Blank End -->
 

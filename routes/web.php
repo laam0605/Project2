@@ -59,7 +59,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/order-update-status/{id}/{status}', [OrderController::class, "ordersUpdateStatus"]);
 
 // ADMIN STATS
-
+    Route::get('/stats', [OrderController::class, "statistics"]);
 });
 
 
