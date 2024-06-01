@@ -49,13 +49,16 @@
         <a href="/cart"><i class="fa fa-shopping-cart" style="padding-left: 2px">({{ empty($cart) ? 0 : count($cart) }})</i></a>
 {{--        <i class="fa fa-sign-out"></i>--}}
         @if(\Illuminate\Support\Facades\Auth::check())
-            <!-- Dropdown Menu -->
             <div class="login-dropdown">
-                <a href="#" class="login-btn">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                @if(\Illuminate\Support\Facades\Auth::user()->role == 1)
+                    <a href="/admin" class="login-btn">{{\Illuminate\Support\Facades\Auth::user()->name}}(Admin) </a>
+                @else
+                    <a href="#" class="login-btn">{{\Illuminate\Support\Facades\Auth::user()->name}} </a>
+                @endif
 {{--                <div class="login-dropdown-content">--}}
                     <a href="/logout"><i class="fa fa-sign-out"></i></a>
-{{--                </div>--}}
-            </div>
+           </div>
+    </div>
         @else
             <a href="/login" class="login-btn">Login</a>
         @endif

@@ -64,12 +64,19 @@
                     </div>
 
                     <div class = "purchase-info">
-                        <input type = "number" id="quantity" min = "0" value = "1">
+                        <input type = "number" id="quantity" min = "1" value = "1" oninput="validateNumber(this)" title="Only positive numbers greater than zero are allowed.">
                         <a href="#" id="btnAddToCart" attrId="{{$products->id}}" type="button"><i class = "fas fa-shopping-cart"></i>
                             Add to Cart
                         </a>
                         <script src="/js/jquery.min.js"></script>
                         <script>
+                            function validateNumber(input) {
+                                var value = parseFloat(input.value);
+                                if (value < 1) {
+                                    input.value = "";
+                                }
+                            }
+
                             $(function () {
                                 $("#btnAddToCart").click(function () {
                                     let quantity = $("#quantity").val();

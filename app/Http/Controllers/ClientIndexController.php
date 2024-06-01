@@ -24,23 +24,48 @@ class ClientIndexController extends Controller
 
     }
     public function contact() {
-        return view("client/contact");
+        $cart = Session::get("cart");
+        $setting = DB::table("setting")
+            ->first();
+
+        return view("client/contact",[
+            "setting" => $setting,
+            "cart" => $cart
+        ]);
     }
 
     public function aboutUs() {
-        return view("client/about-us");
+        $cart = Session::get("cart");
+        $setting = DB::table("setting")
+            ->first();
+
+        return view("client/about-us",[
+            "setting" => $setting,
+            "cart" => $cart
+        ]);
     }
 
     public function feedBack() {
-        return view("client/feedback");
+        $cart = Session::get("cart");
+        $setting = DB::table("setting")
+            ->first();
+
+        return view("client/feedback",[
+            "setting" => $setting,
+            "cart" => $cart
+        ]);
     }
 
     public function search() {
+        $cart = Session::get("cart");
+        $setting = DB::table("setting")
+            ->first();
+
         $products = DB::table("product")
             ->get();
         return view("client/search",[
-
-
+        "setting" => $setting,
+        "cart" => $cart,
         "products" => $products
         ]);
     }

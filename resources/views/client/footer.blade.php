@@ -34,7 +34,7 @@
                 <li><a href=""><i class="fas fa-mobile-alt"></i> +84 123456789</a></li>
                 <li><a href=""><i class="far fa-envelope"></i> lamtran7065@gmail.com</a></li>
                 <li><a href=""><i class="far fa-envelope"></i> ntg1611@gmail.com</a></li>
-                <li><a href=""><i class="fas fa-globe-europe"></i> www.LBookStore.com</a></li>
+{{--                <li><a href=""><i class="fas fa-globe-europe"></i> www.BookStore.com</a></li>--}}
             </ul>
         </div>
     </div>
