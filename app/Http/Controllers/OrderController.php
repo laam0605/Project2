@@ -25,4 +25,16 @@ class OrderController extends Controller
             ]);
         return redirect ('/admin/order-list');
     }
+
+    public function filter($status) {
+        $activeMenu = "order";
+        $orders = DB::table("orders")
+            ->where("status", $status)
+            ->get();
+
+        return view("admin.order-List", [
+            "orders" => $orders,
+            "activeMenu" => $activeMenu,
+        ]);
+    }
 }

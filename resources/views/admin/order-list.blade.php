@@ -70,6 +70,10 @@
                 </div>
             </form>
 
+            <a href="/admin/order-list/PENDING" class="btn btn-info btn-sm">pending</a>
+            <a href="/admin/order-list/CONFIRMED" class="btn btn-info btn-sm">confirmed</a>
+            <a href="/admin/order-list/SHIPPING" class="btn btn-info btn-sm">shipping</a>
+            <a href="/admin/order-list/RECEIVED" class="btn btn-info btn-sm">received</a>
 
             <table class="table table-hover  table-striped">
                 <thead>
@@ -95,20 +99,20 @@
 
                         @if($obj->status === 'PENDING')
                             <td class="text-center">
-                                <a href="/admin/orders-update-status/{{$obj -> id}}/CONFIRMED" class="btn btn-outline-success btn-sm">Confirm</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/CONFIRMED" class="btn btn-outline-success btn-sm">Confirm</a>
                             </td>
                             <td class="text-center">
-                                <a href="/admin/orders-update-status/{{$obj -> id}}/CANCELED" class="btn btn-outline-danger btn-sm">Cancel</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/CANCELED" class="btn btn-outline-danger btn-sm">Cancel</a>
                             </td>
                         @endif
                         @if($obj->status === 'CONFIRMED')
                             <td class="text-center">
-                                <a href="/admin/orders-update-status/{{$obj -> id}}/SHIPPING" class="btn btn-outline-warning btn-sm">SHIPPING</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/SHIPPING" class="btn btn-outline-warning btn-sm">SHIPPING</a>
                             </td>
                         @endif
                         @if($obj->status === 'SHIPPING')
                             <td class="text-center">
-                                <a href="/admin/orders-update-status/{{$obj -> id}}/RECEIVED" class="btn btn-outline-warning btn-sm">Received</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/RECEIVED" class="btn btn-outline-warning btn-sm">Received</a>
                             </td>
                         @endif
 {{--                        <td class="text-center">--}}
