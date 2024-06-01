@@ -10,19 +10,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminStatsController;
 
-
+Route::get('/test', [CartController::class, "test"]);
 
 Route::get('/', function () {
     return redirect('/ClientIndex');
 });
-
-Route::get('/add-to-cart/{id}/{quantity}', [CartController::class, "addToCart"]);
-Route::get('/cart', [CartController::class, "cart"]);
-Route::get('/cartRemove/{id}', [CartController::class, "cartRemove"]);
-Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
-Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
 
 // ADMIN MIDDLEWARE
@@ -54,13 +49,22 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get("/product-search", [AdminProductController::class, "productSearch"]);
 
 // ADMIN ORDER
-    Route::get('/order-list', [OrderController::class, "getAll"]);
-    Route::get('/order-list/{status}', [OrderController::class, "filter"]);
-    Route::get('/order-update-status/{id}/{status}', [OrderController::class, "ordersUpdateStatus"]);
+    Route::get('/order-list', [AdminOrderController::class, "getAll"]);
+    Route::get('/order-list/{status}', [AdminOrderController::class, "filter"]);
+    Route::get('/order-update-status/{id}/{status}', [AdminOrderController::class, "ordersUpdateStatus"]);
 
 // ADMIN STATS
-    Route::get('/stats', [OrderController::class, "statistics"]);
+    Route::get('/stats', [AdminStatsController::class, "statistics"]);
 });
+
+
+// CLIENT CART
+Route::get('/cart', [CartController::class, "cart"]);
+Route::get('/add-to-cart/{id}/{quantity}', [CartController::class, "addToCart"]);
+Route::get('/cartRemove/{id}/{quantity}', [CartController::class, "cartRemove"]);
+Route::get('/cartRemoveAll', [CartController::class, "cartRemoveAll"]);
+Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
+Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
 
 // CLIENT MIDDLEWARE

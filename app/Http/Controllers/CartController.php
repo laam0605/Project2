@@ -43,11 +43,25 @@ public function addToCart($id, $quantity) {
 
     }
 
-        public function cartRemove() {
-        Session::forget("cart");
-        Session::flush();
-        Session::save();
+        public function cartRemoveAll()
+        {
+            Session::forget("cart");
+            return redirect('/cart');
+        }
+        public function cartRemove(Request $request) {
+            $productIdToRemove = $request->id;
+            $quantityToRemove = $request->quantity;
+            $cart = Session::get("cart");
 
+            foreach ($cart as $key => $product) {
+                // Kiểm tra nếu id, quantity của sản phẩm trong mảng trùng với id, quantity sản phẩm cần xoá
+                if ($product->id == $productIdToRemove && $product->quantity == $quantityToRemove) {
+                    unset($cart[$key]);
+                    break;
+                }
+            }
+
+            session(['cart' => $cart]);
         return redirect("cart");
         }
 
@@ -78,7 +92,9 @@ public function addToCart($id, $quantity) {
     }
 
     public function cartCheckout(Request $request) {
-        //date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $setting = DB::table("setting")
+            ->first();
+
         $total = $request->total;
         $status = "PENDING";
 
@@ -98,34 +114,35 @@ public function addToCart($id, $quantity) {
             ]);
 
         // them san pham, quantity, price vao order_detail
-        {
             $cart = Session::get('cart');
-
             foreach ($cart as $obj){
                 DB::table("order_details")
                     ->insert([
                         'order_id' => $id,
                         'product_id' => $obj->id,
                         'price' => $obj->price,
-                        'quantity' => $obj->quantity
+                        'quantity' => $obj->quantity,
+                        "created_at" => date("Y-m-d H:i:s"),
                     ]);
             }
-        }
 
         //Xóa giỏ hàng
         {
             Session::forget("cart");
-            Session::flush();
-            Session::save();
         }
-
-        $setting = DB::table("setting")
-            ->first();
 
         return view("client/CartCheckoutSuccess",[
             "setting" => $setting
         ]);
     }
 
+    public function test () {
+        $product = DB::table('product')
+            ->get();
+        $data = Session::get('cart');
+//        Session::forget("cart");
+        dd($data);
+        return redirect("/");
+    }
 
 }

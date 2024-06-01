@@ -182,9 +182,8 @@
                         <th>Subtotal</th>
                     </tr>
                 </div>
+                <a href="/cartRemoveAll"><button class="cart">Remove All Items</button></a>
                 @foreach($cart as $obj)
-
-                    <a href="cartRemove/{{$obj->id}}"><button class="cart">Remove ALl Items</button></a>
                     <tr>
                         <td>
 
@@ -194,7 +193,7 @@
                                     <h3>Name: {{$obj->product_name}}"</h3>
                                     <p>Price: {{$obj->price}}</p>
                                     <p>Description: {{$obj->description}}</p>
-                                    <a href="cartRemove/{{$obj->id}}"><button class="cart">Remove Item</button></a>
+                                    <a href="/cartRemove/{{$obj->id}}/{{$obj->quantity}}" type="submit"><button class="cart">Remove Item</button></a>
                                 </div>
                             </div>
                         </td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -22,6 +23,9 @@ class AdminController extends Controller
 
     public function signOut(){
         Auth::logout();
+        Session::forget("cart");
+        Session::flush();
+        Session::save();
         return redirect("/logon");
     }
 }
