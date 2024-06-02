@@ -14,7 +14,7 @@ Route::get('/about-us', [ClientIndexController::class, "aboutUs"]);
 Route::get('/feedback', [ClientIndexController::class, "feedBack"]);
 Route::get('/search', [ClientIndexController::class, "search"]);
 Route::get("/product-details/{id}", [ClientIndexController::class, "productDetails"]);
-Route::get('/checkout', [ClientIndexController::class, "checkout"]);
+
 
 
 

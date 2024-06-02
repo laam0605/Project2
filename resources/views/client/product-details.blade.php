@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 <style>
@@ -64,12 +65,40 @@
                     </div>
 
                     <div class = "purchase-info">
-                        <input type = "number" id="quantity" min = "1" value = "1" oninput="validateNumber(this)" title="Only positive numbers greater than zero are allowed.">
+                        <input type = "number" id="quantity" min = "1" value = "1" oninput="validateNumber(this)">
                         <a href="#" id="btnAddToCart" attrId="{{$products->id}}" type="button"><i class = "fas fa-shopping-cart"></i>
                             Add to Cart
                         </a>
+                        <script>
+                            var isLoggedIn = @json(auth()->check());
+                        </script>
                         <script src="/js/jquery.min.js"></script>
                         <script>
+                            $(document).ready(function() {
+                                $('#btnAddToCart').click(function(e) {
+                                    e.preventDefault(); // Ngăn chặn việc truy cập đến đường dẫn mặc định
+
+                                    if (!isLoggedIn) {
+                                        swal({
+                                            title: "Warning",
+                                            text: "You must be logged in to make a purchase.",
+                                            icon: "warning",
+                                            buttons: true,
+                                        }).then((willLogin) => {
+                                            if (willLogin) {
+                                                window.location.href = "/login"; // Chuyển hướng người dùng đến trang đăng nhập
+                                            }
+                                        });
+
+                                    } else {
+                                        // Nếu đã đăng nhập, thực hiện thao tác "Thêm vào giỏ" bằng cách chuyển hướng trực tiếp
+                                        let quantity = $("#quantity").val();
+                                        let id = $(this).attr("attrId");
+                                        window.location.href = '/add-to-cart/' + id + '/' + quantity;
+                                    }
+                                });
+                            });
+
                             function validateNumber(input) {
                                 var value = parseFloat(input.value);
                                 if (value < 1) {
@@ -77,14 +106,14 @@
                                 }
                             }
 
-                            $(function () {
-                                $("#btnAddToCart").click(function () {
-                                    let quantity = $("#quantity").val();
-                                    let id = $("#btnAddToCart").attr("attrId");
-
-                                    location.href = "/add-to-cart/" + id + "/" + quantity;
-                                });
-                            });
+                            // $(function () {
+                            //     $("#btnAddToCart").click(function () {
+                            //         let quantity = $("#quantity").val();
+                            //         let id = $("#btnAddToCart").attr("attrId");
+                            //
+                            //         location.href = "/add-to-cart/" + id + "/" + quantity;
+                            //     });
+                            // });
 
                         </script>
 {{--                        <button type = "button" class = "btn"> <i class = "fas fa-heart"></i> Add to Wishlist</button>--}}

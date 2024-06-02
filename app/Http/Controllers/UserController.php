@@ -50,7 +50,7 @@ class UserController extends Controller
             return redirect('/ClientIndex');
         }
         else {
-            return redirect()->back()->with('error', 'sai cmnr');
+            return redirect()->back()->with('error', 'Email or password is incorrect !');
         }
 
     }

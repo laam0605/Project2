@@ -58,23 +58,26 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 });
 
 
-// CLIENT CART
-Route::get('/cart', [CartController::class, "cart"]);
-Route::get('/add-to-cart/{id}/{quantity}', [CartController::class, "addToCart"]);
+// CLIENT CART MIDDLEWARE
+Route::get('/cart', [CartController::class, "cart"])->name('cart');
+
+Route::middleware(['cart'])->group(function () {
+
+Route::get('/add-to-cart/{id}/{quantity}', [CartController::class, "addToCart"])->name('addToCart');
 Route::get('/cartRemove/{id}/{quantity}', [CartController::class, "cartRemove"]);
 Route::get('/cartRemoveAll', [CartController::class, "cartRemoveAll"]);
 Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
+Route::get('/checkout', [ClientIndexController::class, "checkout"]);
 Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
+});
 
-// CLIENT MIDDLEWARE
+// CLIENT LOGIN & REGISTER
 Route::get('/login', [UserController::class, "login"]);
 Route::post('/login', [UserController::class, "postLogin"]);
 Route::get('/register', [UserController::class, "register"]);
 Route::post('/register', [UserController::class, "postRegister"]);
 Route::get('/logout', [UserController::class, "logout"]);
-
-
 
 
 

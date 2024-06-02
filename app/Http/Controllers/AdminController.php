@@ -17,7 +17,7 @@ class AdminController extends Controller
             return redirect("/admin");
         }
         else {
-            return redirect()->back()->with('error', 'sai cmnr');
+            return redirect()->back()->with('error', 'Email or password is incorrect !');
         }
     }
 
