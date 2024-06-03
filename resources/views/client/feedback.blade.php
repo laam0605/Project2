@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LBookStore Feedback</title>
+    <title>BookStore Feedback</title>
     <link rel="icon" href="img/book-logo.png" type="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -18,7 +18,7 @@
 
 <section class = "hero-page">
     <div class = "hero-bg">
-        <h3>LBookStore</h3>
+        <h3>BookStore</h3>
         <h2>How customers talk about us ?</h2>
         <div class = "line">
             <div></div>

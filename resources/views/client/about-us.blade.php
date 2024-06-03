@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LBookStore | About Us</title>
+    <title>BookStore | About Us</title>
     <link rel="icon" href="img/book-logo.png" type="image">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -23,7 +23,7 @@
         <div class = "about-us content">
             <h1>About Us</h1>
                 <span></span>
-                <p>Welcome to LBookStore, where we use technology and the internet to connect readers with quality books. Our mission is to foster a community of passionate readers and writers, and our vision is to make reading a part of modern life. Join us and discover your next great read!</p>
+                <p>Welcome to BookStore, where we use technology and the internet to connect readers with quality books. Our mission is to foster a community of passionate readers and writers, and our vision is to make reading a part of modern life. Join us and discover your next great read!</p>
 
                 <div class="social">
                     <a href=""><i class="fab fa-facebook-f"></i></a>
