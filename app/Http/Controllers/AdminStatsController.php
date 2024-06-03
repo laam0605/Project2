@@ -16,7 +16,8 @@ class AdminStatsController extends Controller
             ->groupByRaw("MONTH(created_at)")
             ->get();
 
-        $obj1 = $result1[0];
+        // Kiểm tra và gán giá trị mặc định nếu result1 trống
+        $obj1 = $result1->isEmpty() ? (object)['month' => null, 'revenue' => 0] : $result1[0];
 
         foreach ($result1 as $i => $obj){
             if($obj1->revenue < $obj->revenue){
@@ -30,7 +31,7 @@ class AdminStatsController extends Controller
             ->groupByRaw("YEAR(created_at)")
             ->get();
 
-        $obj2 = $result2[0];
+        $obj2 = $result2->isEmpty() ? (object)['year' => null, 'revenue' => 0] : $result2[0];
 
         foreach ($result2 as $i => $obj){
             if($obj2->revenue < $obj->revenue){
