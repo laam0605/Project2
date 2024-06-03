@@ -67,7 +67,7 @@ Route::get('/add-to-cart/{id}/{quantity}', [CartController::class, "addToCart"])
 Route::get('/cartRemove/{id}/{quantity}', [CartController::class, "cartRemove"]);
 Route::get('/cartRemoveAll', [CartController::class, "cartRemoveAll"]);
 Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
-Route::get('/checkout', [ClientIndexController::class, "checkout"]);
+Route::get('/checkout', [CartController::class, "checkout"]);
 Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
 });

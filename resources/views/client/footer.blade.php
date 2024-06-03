@@ -40,6 +40,6 @@
     </div>
 
     <div class="copyright">
-        <p>LBookStore COPYRIGHT &copy; 2023. ALL RIGHTS RESERVED.</p>
+        <p>BookStore COPYRIGHT &copy; 2023. ALL RIGHTS RESERVED.</p>
     </div>
 </footer>

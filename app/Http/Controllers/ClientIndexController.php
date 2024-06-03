@@ -99,29 +99,6 @@ class ClientIndexController extends Controller
         dd($cart);
     }
 
-    public function checkout() {
-
-
-        $setting = DB::table("setting")
-            ->first();
-
-        $cart = Session::get("cart");
-
-        if($cart ==null) {
-            $cart = [];
-        }
-
-        $total =0;
-        foreach ($cart as $index => $obj) {
-            $total += $obj->price * $obj->quantity;
-        }
-        return view("client/checkout",[
-            "cart" => $cart,
-            "total" => $total,
-            "setting"=>$setting
-        ]);
-    }
-
 
 }
 
