@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AdminCategoryController extends Controller
 {
-    public function getAll()
+    public function getAll(): View
     {
         $activeMenu = "category";
         $data = "";
         $categories = DB::table("category")
             ->orderBy("id")
-            ->get();
+            ->paginate(5);
 
 
         return view("admin/category-list",
@@ -86,14 +87,15 @@ class AdminCategoryController extends Controller
         }
     }
 
-    public function categorySearch(Request $request){
+    public function categorySearch(Request $request): View
+    {
         $activeMenu = "category";
         $data = $request->data;
 
         $categories = DB::table("category")
             ->where("category_name", "LIKE", "%$data%")
             ->orderBy("id")
-            ->get();
+            ->paginate(5);
 
 //        dd($products);
 

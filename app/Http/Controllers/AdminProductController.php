@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AdminProductController extends Controller
 {
-    public function getAll()
+    public function getAll(): View
     {
         $data = "";
         $activeMenu = "product";
@@ -18,7 +19,7 @@ class AdminProductController extends Controller
             ->join("category", "product.category_id", "=", "category.id")
             ->select("product.*", "category.category_name")
             ->orderBy("id")
-            ->get();
+            ->paginate(5);
 
 
         return view("admin/product-list",
@@ -150,7 +151,8 @@ class AdminProductController extends Controller
         ]);
     }
 
-    public function productSearch(Request $request){
+    public function productSearch(Request $request): View
+    {
         $activeMenu = "product";
         $data = $request->data;
 
@@ -159,7 +161,7 @@ class AdminProductController extends Controller
             ->join("category", "product.category_id", "=", "category.id")
             ->select("product.*", "category.category_name")
             ->orderBy("id")
-            ->get();
+            ->paginate(5);
 
 
 //        dd($products);

@@ -122,6 +122,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{$orders->links()}}
         </div>
         <!-- Blank End -->
 

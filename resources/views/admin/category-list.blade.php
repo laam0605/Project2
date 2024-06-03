@@ -94,6 +94,8 @@
                 @endforeach
                 </tbody>
             </table>
+            <!-- Hiển thị các nút phân trang -->
+            {{$categories->links()}}
         </div>
         <!-- Blank End -->
 

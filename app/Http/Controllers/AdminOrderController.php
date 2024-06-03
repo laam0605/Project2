@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AdminOrderController extends Controller
 {
-    public function getAll() {
+    public function getAll(): View
+    {
         $activeMenu = "order";
         $orders = DB::table("orders")
-            ->get();
+            ->paginate(5);
+
         return view("admin.order-List", [
             "orders" => $orders,
             "activeMenu" => $activeMenu,
