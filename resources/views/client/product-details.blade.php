@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LBookStore | Product Details</title>
+    <title>BookStore | Product Details</title>
     <link rel="icon" href="/image/book-logo.png" type="image">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -55,9 +55,16 @@
                     <div class = "product-detail">
                         <h2>Description: </h2>
                         <p>{{$products->description}}</p>
+                        <h4>In Stock:
+                        @if($products->stock > 0)
+                            {{$products->stock}} <i style="color: green" class="fas fa-check"></i>
+                        @else
+                            {{"0"}} <i style="color: red" class="fas fa-times"></i>
+                        @endif
+                        </h4>
+
                         <ul>
                             <li><i class="fa fa-check"></i> Format: <span>Paperback</span></li>
-                            <li><i class="fa fa-check"></i> Available: <span>in stock</span></li>
                             <li><i class="fa fa-check"></i> Category: <span>Fantasy</span></li>
                             <li><i class="fa fa-check"></i> Shipping Area: <span>All over the Philippines</span></li>
                             <li><i class="fa fa-check"></i> Shipping Fee: <span>Free</span></li>
@@ -79,22 +86,23 @@
                                     e.preventDefault(); // Ngăn chặn việc truy cập đến đường dẫn mặc định
 
                                     if (!isLoggedIn) {
-                                        swal({
-                                            title: "Warning",
-                                            text: "You must be logged in to make a purchase.",
-                                            icon: "warning",
-                                            buttons: true,
-                                        }).then((willLogin) => {
-                                            if (willLogin) {
-                                                window.location.href = "/login"; // Chuyển hướng người dùng đến trang đăng nhập
-                                            }
-                                        });
-
+                                        // Các thao tác nếu người dùng chưa đăng nhập
                                     } else {
-                                        // Nếu đã đăng nhập, thực hiện thao tác "Thêm vào giỏ" bằng cách chuyển hướng trực tiếp
-                                        let quantity = $("#quantity").val();
-                                        let id = $(this).attr("attrId");
-                                        window.location.href = '/add-to-cart/' + id + '/' + quantity;
+                                        // Thêm đoạn kiểm tra số lượng hàng còn trước khi thực hiện thêm vào giỏ
+                                        let stock = parseInt('{{$products->stock}}');
+                                        if (stock > 0) {
+                                            // Nếu còn hàng, thực hiện thêm vào giỏ
+                                            let quantity = $("#quantity").val();
+                                            let id = $(this).attr("attrId");
+                                            window.location.href = '/add-to-cart/' + id + '/' + quantity;
+                                        } else {
+                                            // Hiển thị thông báo hết hàng
+                                            swal({
+                                                title: "Out of Stock",
+                                                text: "This product is currently out of stock.",
+                                                icon: "error",
+                                            });
+                                        }
                                     }
                                 });
                             });

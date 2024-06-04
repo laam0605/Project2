@@ -78,6 +78,7 @@
                         <th class="text-center">Product Name</th>
                         <th class="text-center">Price</th>
                         <th class="text-center">Description</th>
+                        <th class="text-center">In Stock</th>
                         <th class="text-center">Image</th>
                         <th class="text-center">Category Name</th>
                         <th colspan="3" class="text-center">Action</th>
@@ -90,6 +91,7 @@
                             <td class="text-center">{{$obj->product_name}}</td>
                             <td class="text-center">{{$obj->price}}</td>
                             <td class="text-center">{{$obj->description}}</td>
+                            <td class="text-center">{{$obj->stock}}</td>
                             <td class="text-center"><img height="50" src="/image_product/{{$obj->image}}" alt=""></td>
                             <td class="text-center">{{$obj->category_name}}</td>
                             <td class="text-center">

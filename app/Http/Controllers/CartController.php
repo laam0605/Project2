@@ -16,7 +16,10 @@ public function addToCart($id, $quantity) {
     $product->quantity = $quantity;
 
         $cart = $product;
-    Session::push("cart", $cart);
+
+    if($product->stock > 0 && $quantity <= $product->stock) {
+        Session::push("cart", $cart);
+    }
 
     return redirect("ClientIndex");
 
@@ -68,9 +71,13 @@ public function addToCart($id, $quantity) {
 
     public function cartUpdate($type,$id, $quantity ) {
         $cart = Session::get("cart");
+        $product = DB::table("product")
+            ->where('id', $id)
+            ->first();
+
         foreach ($cart as $index => $obj) {
 
-            if ($obj->id == $id && $type == "plus") {
+            if ($obj->id == $id && $type == "plus" && $obj -> quantity < $product->stock) {
                 $obj->quantity = $quantity +1;
 
             }
@@ -78,8 +85,9 @@ public function addToCart($id, $quantity) {
             if ($obj->id == $id && $type == "sub") {
                 if ($quantity > 1){
                     $obj->quantity = $quantity -1;
-                } elseif ($quantity == 1){
+                } elseif ($quantity == 1 && $obj -> quantity == 1){
                     unset($cart[$index]);
+                    break;
                 }
 
             }
@@ -148,6 +156,15 @@ public function addToCart($id, $quantity) {
                         'price' => $obj->price,
                         'quantity' => $obj->quantity,
                         "created_at" => date("Y-m-d H:i:s"),
+                    ]);
+            }
+
+            // cap nhat so luong san pham trong kho
+            foreach ($cart as $obj){
+                DB::table("product")
+                    ->where("id", $obj->id)
+                    ->update([
+                        "stock" => $obj->stock - $obj->quantity,
                     ]);
             }
 

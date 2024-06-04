@@ -80,6 +80,11 @@
                     </div>
 
                     <div class="input-group mb-3">
+                        <span class="input-group-text"><b>Stock</b></span>
+                        <input type="number" name="stock" value="{{$product->stock}}" class="form-control">
+                    </div>
+
+                    <div class="input-group mb-3">
                         <span class="input-group-text"><b>Image</b></span>
                         <input type="file" name="image" value="{{$product->image}}" class="form-control">
                     </div>

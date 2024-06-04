@@ -75,6 +75,11 @@
                     </div>
 
                     <div class="mt-2 mb-2">
+                        <label for="">Stock</label>
+                        <input type="number" name="stock" class="form-control form-control-sm" />
+                    </div>
+
+                    <div class="mt-2 mb-2">
                         <label for="">Image</label>
                         <input type="file" name="image" class="form-control form-control-sm" />
                     </div>

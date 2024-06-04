@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class AdminAccountController extends Controller
 {
-    public function getAll()
+    public function getAll(): View
     {
         $activeMenu = "account";
         $accounts = DB::table("users")

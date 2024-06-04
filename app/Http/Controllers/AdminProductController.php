@@ -57,6 +57,7 @@ class AdminProductController extends Controller
         $productName = $request->productName;
         $price = $request->price;
         $description = $request->description;
+        $stock = $request->stock;
         $categoryId = $request->categoryId;
 
         $imageName = "";
@@ -77,6 +78,7 @@ class AdminProductController extends Controller
                     "price" => $price,
                     "description" => $description,
                     "image" => $imageName,
+                    "stock" => $stock,
                     "category_id" => $categoryId
                 ]);
 
@@ -104,6 +106,7 @@ class AdminProductController extends Controller
         $productName = $request->productName;
         $price = $request->price;
         $description = $request->description;
+        $stock = $request->stock;
         $categoryId = $request->categoryId;
 
         $imageName = "";
@@ -126,6 +129,7 @@ class AdminProductController extends Controller
                     "price" => $price,
                     "description" => $description,
                     "image" => $imageName,
+                    "stock" => $stock,
                     "category_id" => $categoryId
                 ]);
             return redirect("/admin/product-list");

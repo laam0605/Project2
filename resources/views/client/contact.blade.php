@@ -45,6 +45,7 @@
                 <span><i class = "fas fa-envelope-open"></i></span>
                 <span>E-mail</span>
                 <span class = "text">lamtran7065@gmail.com</span>
+                <span class = "text">ntg1611@gmail.com</span>
             </div>
             <div>
                 <span><i class = "fas fa-clock"></i></span>
@@ -78,7 +79,7 @@
 {{--FOOTER--}}
 
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>

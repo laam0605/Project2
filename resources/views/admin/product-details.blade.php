@@ -77,6 +77,10 @@
                             <td>{{$obj->description}}</td>
                         </tr>
                         <tr>
+                            <th>In Stock</th>
+                            <td>{{$obj->stock}}</td>
+                        </tr>
+                        <tr>
                             <th>Image</th>
                             <td><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
                         </tr>
