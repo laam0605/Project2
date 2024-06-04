@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AdminStatsController;
+use App\Http\Controllers\AdminAccountController;
 
 Route::get('/test', [CartController::class, "test"]);
 
@@ -55,6 +56,10 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 
 // ADMIN STATS
     Route::get('/stats', [AdminStatsController::class, "statistics"]);
+
+// ADMIN ACCOUNT MANAGEMENT
+    Route::get('/account-list', [AdminAccountController::class, "getAll"]);
+
 });
 
 

@@ -21,6 +21,7 @@
             <a href="/admin/product-list" class="nav-item nav-link @if ($activeMenu === 'product') active @endif"><i class="fa fa-th me-2"></i>Product</a>
             <a href="/admin/category-list" class="nav-item nav-link @if ($activeMenu === 'category') active @endif"><i class="fa fa-th me-2"></i>Category</a>
             <a href="/admin/order-list" class="nav-item nav-link @if ($activeMenu === 'order') active @endif"><i class="fa fa-th me-2"></i>Order</a>
+            <a href="/admin/account-list" class="nav-item nav-link @if ($activeMenu === 'account') active @endif"><i class="fas fa-user me-2"></i>Account</a>
             <a href="/admin/stats" class="nav-item nav-link @if ($activeMenu === 'stats') active @endif"><i class="fa fa-chart-bar me-2"></i>Statistics</a>
             {{--                <div class="nav-item dropdown">--}}
             {{--                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>--}}
