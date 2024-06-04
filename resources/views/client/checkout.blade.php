@@ -210,7 +210,7 @@
                 @csrf
                 <div>
                     <label for="">Full Name: </label>
-                    <input type="text" name="fullName" placeholder="Enter your full name" id="check-input" required>
+                    <input type="text" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" required>
                 </div>
             </div>
 
@@ -238,9 +238,9 @@
                         <img src="/image_product/{{$obj->image}}" alt="img" width="150" height="auto" />
                         <div>
                             <h3>{{$obj->product_name}}</h3>
-                            <p>Price: {{$obj->price}}$</p>
+                            <p>Price: {{$obj->price}} đ</p>
                             <p>Quantity: {{$obj->quantity}}</p>
-                            <p>Subtotal: {{$obj->price * $obj->quantity}}S</p>
+                            <p>Subtotal: {{$obj->price * $obj->quantity}} đ</p>
                         </div>
                     </div>
                 </td>
@@ -256,13 +256,13 @@
         <div class="total-price">
 
             <table>
-                <tr>
-                    <td>Tax</td>
-                    <td>10$</td>
-                </tr>
+{{--                <tr>--}}
+{{--                    <td>Tax</td>--}}
+{{--                    <td>10$</td>--}}
+{{--                </tr>--}}
                 <tr>
                     <td id="total">Total</td>
-                    <td id="total">{{$total}}</td>
+                    <td id="total">{{$total}} đ</td>
                 </tr>
 
 

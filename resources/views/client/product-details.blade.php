@@ -49,7 +49,7 @@
                     </div>
 
                     <div class = "product-price">
-                        <p>Price: <span>{{$products->price}}</span></p>
+                        <p>Price: <span>{{$products->price}} đ</span></p>
                     </div>
 
                     <div class = "product-detail">
@@ -144,7 +144,7 @@
                     </div>
                     <div class="content">
                         <h3><a >{{$obj->product_name}}</h3>
-                        <div class="price">${{$obj->price}}<span>$821.88</span></div>
+                        <div class="price">{{$obj->price}} đ</div>
                         <p class="text-dark fs-5 fw-bold mb-0">{{$obj->description}}</p>
 {{--                        <a href="cart" class="featured-btn">Add to Cart</a>--}}
                     </div>

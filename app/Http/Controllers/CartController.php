@@ -102,6 +102,10 @@ public function addToCart($id, $quantity) {
         }
 
         $total =0;
+        if(empty($cart)) {
+            return redirect("/cart");
+        }
+
         foreach ($cart as $index => $obj) {
             $total += $obj->price * $obj->quantity;
         }

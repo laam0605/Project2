@@ -7,6 +7,8 @@
     <link rel="icon" href="img/book-logo.png" type="image">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <style>
 
         .header-container {
@@ -191,7 +193,7 @@
                                 <img src="/image_product/{{$obj->image}}" alt="wew" width="250" height="auto" />
                                 <div>
                                     <h3>Name: {{$obj->product_name}}"</h3>
-                                    <p>Price: {{$obj->price}}</p>
+                                    <p>Price: {{$obj->price}} đ</p>
                                     <p>Description: {{$obj->description}}</p>
                                     <a href="/cartRemove/{{$obj->id}}/{{$obj->quantity}}" type="submit"><button class="cart">Remove Item</button></a>
                                 </div>
@@ -202,7 +204,7 @@
                                 {{$obj->quantity}}
                             <a class="custom-plus" href="cart/update/plus/{{$obj->id}}/{{$obj->quantity}}">+</a>
                         </td>
-                        <td id="subtotal">{{$obj->price * $obj->quantity}}</td>
+                        <td id="subtotal">{{$obj->price * $obj->quantity}} đ</td>
                     </tr>
                 @endforeach
         </table>
@@ -212,14 +214,19 @@
             <table>
                 <tr>
                     <td style="font-weight: bold" id="total" >Total</td>
-                    <td id="total">{{$total}}</td>
+                    <td id="total">{{$total}} đ</td>
                 </tr>
 
             </table>
         </div>
 
         @endif
-        <a href="checkout" class="checkout-button">Proceed to Checkout</a>
+        @if(empty($cart))
+            
+        @else
+            <a href="/checkout" class="checkout-button">Proceed to Checkout</a>
+        @endif
+
 
 
     </div>

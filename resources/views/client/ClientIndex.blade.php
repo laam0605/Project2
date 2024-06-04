@@ -25,19 +25,20 @@
 
         <div class="content">
             <h1>Get books up to 50% Off!</h1>
-            <p>Chưa nghĩ ra được gì để điền vào đây.</p>
-            <a href="shop" class="hero-btn">Shop Now</a>
+            <p>A person who won’t read has no advantage over one who can’t read.</p>
+            <a href="/shop" class="hero-btn">Shop Now</a>
         </div>
 
         <div class="swiper books-slider">
             <div class="swiper-wrapper">
-                <a href="#" class="swiper-slide"><img src="image/hunger-games.jpg" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="image/deep-as-sky.jpg" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="image/mocking-jay.jpg" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="image/throne-of-glass.jpg" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="image/the-burning-god.jpg" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="image/catching-fire.jpg" alt=""></a>
-            </div>
+                @foreach($products as $obj)
+                    <a href="#" class="swiper-slide"><img style="height: 600px; width: 460px" src="/image_product/{{$obj -> image}}" alt=""></a>
+                @endforeach
+{{--                <a href="#" class="swiper-slide"><img src="image/deep-as-sky.jpg" alt=""></a>--}}
+{{--                <a href="#" class="swiper-slide"><img src="image/mocking-jay.jpg" alt=""></a>--}}
+{{--                <a href="#" class="swiper-slide"><img src="image/throne-of-glass.jpg" alt=""></a>--}}
+{{--                <a href="#" class="swiper-slide"><img src="image/the-burning-god.jpg" alt=""></a>--}}
+{{--                <a href="#" class="swiper-slide"><img src="image/catching-fire.jpg" alt=""></a>--}}
             </div>
         </div>
     </div>
@@ -124,7 +125,7 @@
                     </div>
                     <div class="content">
                         <h3><a >{{$obj->product_name}}</h3>
-                        <div class="price">${{$obj->price}}<span>$821.88</span></div>
+                        <div class="price">{{$obj->price}} đ<span>$821.88</span></div>
                         <p class="text-dark fs-5 fw-bold mb-0">{{$obj->description}}</p>
 {{--                        <a href="#" class="featured-btn">Add to Cart</a>--}}
                     </div>
@@ -140,176 +141,178 @@
     <div class="swiper arrivals-slider">
 
         <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-11.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>A History of Burning</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            @foreach($products as $obj)
+                <a href="#" class="swiper-slide box">
+                    <div class="arrivals-image">
+                        <img src="/image_product/{{$obj -> image}}" alt="">
                     </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-12.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>Yellowface</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <div class="arrivals-content">
+                        <h3>{{$obj -> product_name}}</h3>
+                        <div class="arrivals-price">{{$obj -> price}} đ</div>
+                        <div class="arrivals-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            @endforeach
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-13.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>Deep As The Sky, Red As The Sea</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-14.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>Alone With You In The Ether</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-12.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>Yellowface</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-15.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>Daisy Jones & The Six</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-13.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>Deep As The Sky, Red As The Sea</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-16.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>If We Were Villains</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-14.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>Alone With You In The Ether</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-17.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>The Secret History</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-15.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>Daisy Jones & The Six</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-18.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>Normal People</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-16.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>If We Were Villains</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-19.jpg" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>The Picture of Dorian Gray</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-17.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>The Secret History</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="arrivals-image">
-                    <img src="img/book-20.png" alt="">
-                </div>
-                <div class="arrivals-content">
-                    <h3>The Master & Margarita</h3>
-                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>
-                    <div class="arrivals-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-18.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>Normal People</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
+
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-19.jpg" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>The Picture of Dorian Gray</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
+
+{{--            <a href="#" class="swiper-slide box">--}}
+{{--                <div class="arrivals-image">--}}
+{{--                    <img src="img/book-20.png" alt="">--}}
+{{--                </div>--}}
+{{--                <div class="arrivals-content">--}}
+{{--                    <h3>The Master & Margarita</h3>--}}
+{{--                    <div class="arrivals-price">&#8369;666.66<span>&#8369;999.99</span></div>--}}
+{{--                    <div class="arrivals-stars">--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star"></i>--}}
+{{--                        <i class="fas fa-star-half-alt"></i>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </a>--}}
 
         </div>
     </div>
