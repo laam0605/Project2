@@ -9,21 +9,45 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-public function addToCart($id, $quantity) {
-    $product = DB::table("product")
-        ->where("id",$id)
-        ->first();
-    $product->quantity = $quantity;
+    public function addToCart($id, $quantity) {
+        $product = DB::table("product")
+            ->where("id", $id)
+            ->first();
 
-        $cart = $product;
+        if (!$product) {
+            return redirect("ClientIndex")->with('error', 'Product not found');
+        }
 
-    if($product->stock > 0 && $quantity <= $product->stock) {
-        Session::push("cart", $cart);
+        $cart = Session::get('cart', []);
+
+        $found = false;
+
+        foreach ($cart as $item) {
+            if ($item->id == $id) {
+                $item->quantity += $quantity;
+                $found = true;
+
+                // Check if the updated quantity exceeds the product stock
+                if ($item->quantity > $product->stock) {
+                    return redirect("ClientIndex")->with('error', 'Not enough stock');
+                }
+                break;
+            }
+        }
+
+        if (!$found) {
+            if ($product->stock >= $quantity && $quantity > 0) {
+                $product->quantity = $quantity;
+                $cart[] = $product;
+            } else {
+                return redirect("ClientIndex")->with('error', 'Not enough stock or invalid quantity');
+            }
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect("ClientIndex")->with('success', 'Product added to cart');
     }
-
-    return redirect("ClientIndex");
-
-}
 
     public function cart( Request $request) {
         $setting = DB::table("setting")
@@ -53,12 +77,12 @@ public function addToCart($id, $quantity) {
         }
         public function cartRemove(Request $request) {
             $productIdToRemove = $request->id;
-            $quantityToRemove = $request->quantity;
+
             $cart = Session::get("cart");
 
             foreach ($cart as $key => $product) {
                 // Kiểm tra nếu id, quantity của sản phẩm trong mảng trùng với id, quantity sản phẩm cần xoá
-                if ($product->id == $productIdToRemove && $product->quantity == $quantityToRemove) {
+                if ($product->id == $productIdToRemove) {
                     unset($cart[$key]);
                     break;
                 }
