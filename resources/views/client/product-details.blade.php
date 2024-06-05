@@ -15,7 +15,7 @@
 <style>
     img {
         width: 600px;
-        height: 860px;
+        height: 660px;
     }
 </style>
 
