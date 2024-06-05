@@ -12,7 +12,7 @@ class AdminAccountController extends Controller
     {
         $activeMenu = "account";
         $accounts = DB::table("users")
-            ->paginate(5);
+            ->paginate(10);
 
         return view("admin.account-list",[
             "activeMenu" => $activeMenu,

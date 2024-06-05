@@ -19,7 +19,7 @@ class AdminProductController extends Controller
             ->join("category", "product.category_id", "=", "category.id")
             ->select("product.*", "category.category_name")
             ->orderBy("id")
-            ->paginate(5);
+            ->paginate(10);
 
 
         return view("admin/product-list",

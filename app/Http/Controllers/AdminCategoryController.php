@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
         $data = "";
         $categories = DB::table("category")
             ->orderBy("id")
-            ->paginate(5);
+            ->paginate(10);
 
 
         return view("admin/category-list",
@@ -95,7 +95,7 @@ class AdminCategoryController extends Controller
         $categories = DB::table("category")
             ->where("category_name", "LIKE", "%$data%")
             ->orderBy("id")
-            ->paginate(5);
+            ->paginate(10);
 
 //        dd($products);
 

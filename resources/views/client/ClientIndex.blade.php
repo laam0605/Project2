@@ -32,7 +32,7 @@
         <div class="swiper books-slider">
             <div class="swiper-wrapper">
                 @foreach($products as $obj)
-                    <a href="#" class="swiper-slide"><img style="height: 600px; width: 460px" src="/image_product/{{$obj -> image}}" alt=""></a>
+                    <a href="#" class="swiper-slide"><img style="height: 500px; width: 460px" src="/image_product/{{$obj -> image}}" alt=""></a>
                 @endforeach
 {{--                <a href="#" class="swiper-slide"><img src="image/deep-as-sky.jpg" alt=""></a>--}}
 {{--                <a href="#" class="swiper-slide"><img src="image/mocking-jay.jpg" alt=""></a>--}}
@@ -144,7 +144,7 @@
             @foreach($products as $obj)
                 <a href="#" class="swiper-slide box">
                     <div class="arrivals-image">
-                        <img src="/image_product/{{$obj -> image}}" alt="">
+                        <img src="/image_product/{{$obj -> image}}" alt="" style="width: 200px; height: 200px">
                     </div>
                     <div class="arrivals-content">
                         <h3>{{$obj -> product_name}}</h3>

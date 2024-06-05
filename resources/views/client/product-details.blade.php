@@ -72,7 +72,7 @@
                     </div>
 
                     <div class = "purchase-info">
-                        <input type = "number" id="quantity" min = "1" value = "1" oninput="validateNumber(this)">
+                        <input type = "number" id="quantity" min = "1" value = "1" max="{{$products->stock}}" oninput="validateNumber(this)">
                         <a href="#" id="btnAddToCart" attrId="{{$products->id}}" type="button"><i class = "fas fa-shopping-cart"></i>
                             Add to Cart
                         </a>

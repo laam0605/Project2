@@ -12,7 +12,7 @@ class AdminOrderController extends Controller
     {
         $activeMenu = "order";
         $orders = DB::table("orders")
-            ->paginate(5);
+            ->paginate(10);
 
         return view("admin.order-List", [
             "orders" => $orders,
