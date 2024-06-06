@@ -23,19 +23,22 @@ class UserController extends Controller
         // validate du lieu truoc khi vao try catch
         $validatedData = $request->validate([
             'fullName' => 'required|string|',
-            'email'    => 'required|string|email',
+            'email'    => 'required|string|email|unique:users,email',
+            'phone'    => 'required|string|max:10|unique:users,phone',
             'password' => 'required|string|min:3|confirmed',
         ]);
 
         try {
             $fullName = $request->fullName;
             $email = $request->email;
+            $phone = $request->phone;
             $password = Hash::make($request->password);
 
             DB::table("users")
                 ->insert([
                     "name" => $fullName,
                     "email" => $email,
+                    "phone" => $phone,
                     "password" => $password
                 ]);
 

@@ -101,14 +101,20 @@
     <form action="" method="post">
         @csrf
         <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" maxlength="10" name="phone" id="numericInput" placeholder="Phone" pattern="\d*" title="Only enter numbers" required>
+        </div>
+
+        <div class="form-group">
             <label for="">FullName</label>
             <input type="text" name="fullName" placeholder="Full Name" required>
         </div>
 
-        <div class="form-group">
-            <label for="">Email</label>
-            <input type="email" name="email" placeholder="Email" required>
-        </div>
         <div class="form-group">
             <label for="">Password</label>
             <input type="password" name="password" placeholder="Password (Min 3 characters)" id="password" required onkeyup='check();'>
@@ -162,6 +168,10 @@
             document.querySelector("button[type='submit']").disabled = true;
         }
     }
+
+    document.getElementById('numericInput').addEventListener('input', function (e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 </script>
 
 
