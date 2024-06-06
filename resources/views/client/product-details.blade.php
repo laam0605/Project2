@@ -86,6 +86,16 @@
 
                                     if (!isLoggedIn) {
                                         // Các thao tác nếu người dùng chưa đăng nhập
+                                        swal({
+                                            title: "Warning",
+                                            text: "You must be logged in to make a purchase.",
+                                            icon: "warning",
+                                            buttons: true,
+                                        }).then((willLogin) => {
+                                            if (willLogin) {
+                                                window.location.href = "/login"; // Chuyển hướng người dùng đến trang đăng nhập
+                                            }
+                                        });
                                     } else {
                                         // Thêm đoạn kiểm tra số lượng hàng còn trước khi thực hiện thêm vào giỏ
                                         let stock = parseInt('{{$products->stock}}');
