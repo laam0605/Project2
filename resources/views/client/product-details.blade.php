@@ -87,7 +87,7 @@
                                     if (!isLoggedIn) {
                                         // Các thao tác nếu người dùng chưa đăng nhập
                                         swal({
-                                            title: "Warning",
+                                            title: "Warning!",
                                             text: "You must be logged in to make a purchase.",
                                             icon: "warning",
                                             buttons: true,
@@ -103,11 +103,19 @@
                                             // Nếu còn hàng, thực hiện thêm vào giỏ
                                             let quantity = $("#quantity").val();
                                             let id = $(this).attr("attrId");
+                                            if(quantity > stock){
+                                                swal({
+                                                    title: "Exceed stock quantity!",
+                                                    text: "The quantity you entered is higher than the stock quantity.",
+                                                    icon: "error",
+                                                });
+                                                return;
+                                            }
                                             window.location.href = '/add-to-cart/' + id + '/' + quantity;
                                         } else {
                                             // Hiển thị thông báo hết hàng
                                             swal({
-                                                title: "Out of Stock",
+                                                title: "Out of Stock!",
                                                 text: "This product is currently out of stock.",
                                                 icon: "error",
                                             });
