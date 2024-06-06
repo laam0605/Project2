@@ -36,7 +36,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class = "product-content">
                     <h2 class = "product-title">{{$products->product_name}}</h2>
                     <div class = "product-rating">
