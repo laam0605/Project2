@@ -29,7 +29,7 @@ class AdminOrderController extends Controller
         return redirect ('/admin/order-list');
     }
 
-    public function filter($status) {
+    public function filter($status): View {
         $activeMenu = "order";
         $orders = DB::table("orders")
             ->where("status", $status)
