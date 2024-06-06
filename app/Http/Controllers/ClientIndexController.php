@@ -74,7 +74,11 @@ class ClientIndexController extends Controller
         $cart = Session::get("cart");
 
         $products = DB::table("product")
-            ->where("id",$id)
+            ->where("product.id",$id)
+            ->join("category", "product.category_id", "=", "category.id")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->first();
 //        $products->quantity = $quantity;
 

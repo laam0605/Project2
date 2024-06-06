@@ -49,7 +49,14 @@ class CartController extends Controller
         return redirect("ClientIndex")->with('success', 'Product added to cart');
     }
 
-    public function cart( Request $request) {
+    public function cart(Request $request) {
+        $product = DB::table("product")
+            ->join("category", "product.category_id", "=", "category.id")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+            ->get();
+
         $setting = DB::table("setting")
             ->first();
 
@@ -57,6 +64,25 @@ class CartController extends Controller
 
         if($cart ==null) {
             $cart = [];
+        }
+//        dd($product);
+        foreach ($cart as $obj) {
+            foreach ($product as $obj2) {
+                if($obj->category_id == $obj2->category_id)
+                {
+                    $obj->category_name = $obj2->category_name;
+                }
+
+                if($obj->publisher_id == $obj2->publisher_id)
+                {
+                    $obj->publisher_name = $obj2->publisher_name;
+                }
+
+                if($obj->author_id == $obj2->author_id)
+                {
+                    $obj->author_name = $obj2->author_name;
+                }
+            }
         }
 
         $total =0;
@@ -70,7 +96,8 @@ class CartController extends Controller
         return view("client/showcart",[
             "cart" => $cart,
             "total" => $total,
-            "setting"=>$setting
+            "setting"=>$setting,
+            "product" => $product
         ]);
 
     }

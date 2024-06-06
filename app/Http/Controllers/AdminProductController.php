@@ -175,7 +175,7 @@ class AdminProductController extends Controller
             ->join("publisher", "product.publisher_id", "=", "publisher.id")
             ->join("author", "product.author_id", "=", "author.id")
             ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
-            ->get();
+            ->first();
 
 
         return view("admin/product-details", [

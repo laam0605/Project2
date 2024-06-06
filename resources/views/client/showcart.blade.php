@@ -190,11 +190,14 @@
                         <td>
 
                             <div class="cart-info">
-                                <img src="/image_product/{{$obj->image}}" alt="wew" width="250" height="auto" />
+                                <img src="/image_product/{{$obj->image}}" alt="wew" width="250px" height="auto" />
                                 <div>
                                     <h3>Name: {{$obj->product_name}}"</h3>
                                     <p>Price: {{$obj->price}} đ</p>
                                     <p>Description: {{$obj->description}}</p>
+                                    <p>Category: {{$obj->category_name}}</p>
+                                    <p>Publisher: {{$obj->publisher_name}}</p>
+                                    <p>Author: {{$obj->author_name}}</p>
                                     <a href="/cartRemove/{{$obj->id}}/{{$obj->quantity}}" type="submit"><button class="cart">Remove Item</button></a>
                                 </div>
                             </div>
@@ -222,7 +225,7 @@
 
         @endif
         @if(empty($cart))
-            
+
         @else
             <a href="/checkout" class="checkout-button">Proceed to Checkout</a>
         @endif

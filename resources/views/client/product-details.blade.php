@@ -48,25 +48,23 @@
                     </div>
 
                     <div class = "product-price">
-                        <p>Price: <span>{{$products->price}} đ</span></p>
+                        <h4>Price: <span>{{$products->price}} đ</span></h4>
                     </div>
 
-                    <div class = "product-detail">
-                        <h2>Description: </h2>
-                        <p>{{$products->description}}</p>
-                        <h4>In Stock:
+                    <h4>In Stock:
                         @if($products->stock > 0)
                             {{$products->stock}} <i style="color: green" class="fas fa-check"></i>
                         @else
                             {{"0"}} <i style="color: red" class="fas fa-times"></i>
                         @endif
-                        </h4>
+                    </h4>
 
+                    <div class = "product-detail">
                         <ul>
-                            <li><i class="fa fa-check"></i> Format: <span>Paperback</span></li>
-                            <li><i class="fa fa-check"></i> Category: <span>Fantasy</span></li>
-                            <li><i class="fa fa-check"></i> Shipping Area: <span>All over the Philippines</span></li>
-                            <li><i class="fa fa-check"></i> Shipping Fee: <span>Free</span></li>
+                            <li><p>Description: {{$products->description}}</p></li>
+                            <li><p>Category: {{$products->category_name}}</p></li>
+                            <li><p>Publisher: {{$products->publisher_name}}</p></li>
+                            <li><p>Author: {{$products->author_name}}</p></li>
                         </ul>
                     </div>
 

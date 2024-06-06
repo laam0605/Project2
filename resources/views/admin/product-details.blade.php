@@ -58,45 +58,45 @@
             <div class="container-fluid pt-4 px-4">
                 <h3>Product Details</h3>
                 <table class="table table-hover  table-striped">
-                    @foreach($product as $obj)
+
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <td>{{$obj->id}}</td>
+                            <td>{{$product->id}}</td>
                         </tr>
                         <tr>
                             <th>Product Name</th>
-                            <td>{{$obj->product_name}}</td>
+                            <td>{{$product->product_name}}</td>
                         </tr>
                         <tr>
                             <th>Price</th>
-                            <td>{{$obj->price}}</td>
+                            <td>{{$product->price}}</td>
                         </tr>
                         <tr>
                             <th>Description</th>
-                            <td>{{$obj->description}}</td>
+                            <td>{{$product->description}}</td>
                         </tr>
                         <tr>
                             <th>In Stock</th>
-                            <td>{{$obj->stock}}</td>
+                            <td>{{$product->stock}}</td>
                         </tr>
                         <tr>
                             <th>Image</th>
-                            <td><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
+                            <td><img height="100" src="/image_product/{{$product->image}}" alt=""></td>
                         </tr>
                         <tr>
                             <th>Category Name</th>
-                            <td>{{$obj->category_name}}</td>
+                            <td>{{$product->category_name}}</td>
                         </tr>
                         <tr>
                             <th>Publisher Name</th>
-                            <td>{{$obj->publisher_name}}</td>
+                            <td>{{$product->publisher_name}}</td>
                         </tr>
                         <tr>
                             <th>Author Name</th>
-                            <td>{{$obj->author_name}}</td>
+                            <td>{{$product->author_name}}</td>
                         </tr>
-                        @endforeach
+
                         </thead>
                 </table>
                 <a href="/admin/product-list" class="btn btn-primary">Go Back</a>
