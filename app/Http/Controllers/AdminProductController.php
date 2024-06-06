@@ -17,7 +17,9 @@ class AdminProductController extends Controller
         // ON product.category_id = category.id
         $products = DB::table("product")
             ->join("category", "product.category_id", "=", "category.id")
-            ->select("product.*", "category.category_name")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->orderBy("id")
             ->paginate(10);
 
@@ -45,11 +47,17 @@ class AdminProductController extends Controller
         // lay list category tu DB roi truyen ra view
         $categories = DB::table("category")
             ->get();
+        $publisher = DB::table("publisher")
+            ->get();
+        $author = DB::table("author")
+            ->get();
 
         return view("admin/product-add",
             [
                 "categories" => $categories,
                 "activeMenu" => $activeMenu,
+                "publisher" => $publisher,
+                "author" => $author,
             ]);
     }
 
@@ -59,6 +67,8 @@ class AdminProductController extends Controller
         $description = $request->description;
         $stock = $request->stock;
         $categoryId = $request->categoryId;
+        $publisherId = $request->publisherId;
+        $authorId = $request->authorId;
 
         $imageName = "";
         if($request->image != null){
@@ -68,7 +78,7 @@ class AdminProductController extends Controller
             $request->image->move(public_path("image_product"), $imageName);
         }
 
-        if($productName == "" || $price == "" || $categoryId == 0){
+        if($productName == "" || $price == "" || $categoryId == 0 || $publisherId == 0 || $authorId == 0){
             return redirect("/admin/product-add");
         }
         else {
@@ -79,7 +89,9 @@ class AdminProductController extends Controller
                     "description" => $description,
                     "image" => $imageName,
                     "stock" => $stock,
-                    "category_id" => $categoryId
+                    "category_id" => $categoryId,
+                    "publisher_id" => $publisherId,
+                    "author_id" => $authorId
                 ]);
 
             return redirect("/admin/product-list");
@@ -90,6 +102,11 @@ class AdminProductController extends Controller
         $activeMenu = "product";
         $category = DB::table("category")
             ->get();
+        $publisher = DB::table("publisher")
+            ->get();
+        $author = DB::table("author")
+            ->get();
+
         $product = DB::table("product")
             ->where("id", "=", $id)
             ->first();
@@ -99,6 +116,8 @@ class AdminProductController extends Controller
             "product" => $product,
             "category" => $category,
             "activeMenu" => $activeMenu,
+            "publisher" => $publisher,
+            "author" => $author,
         ]);
     }
 
@@ -108,6 +127,8 @@ class AdminProductController extends Controller
         $description = $request->description;
         $stock = $request->stock;
         $categoryId = $request->categoryId;
+        $publisherId = $request->publisherId;
+        $authorId = $request->authorId;
 
         $imageName = "";
         if($request->image != null){
@@ -117,7 +138,7 @@ class AdminProductController extends Controller
             $request->image->move(public_path("image_product"), $imageName);
         }
 
-        if($productName == "" || $price == "" || $categoryId == 0){
+        if($productName == "" || $price == "" || $categoryId == 0 || $publisherId == 0 || $authorId == 0) {
             return redirect("/admin/product-edit/$id");
         }
         else{
@@ -130,7 +151,9 @@ class AdminProductController extends Controller
                     "description" => $description,
                     "image" => $imageName,
                     "stock" => $stock,
-                    "category_id" => $categoryId
+                    "category_id" => $categoryId,
+                    "publisher_id" => $publisherId,
+                    "author_id" => $authorId
                 ]);
             return redirect("/admin/product-list");
         }
@@ -139,19 +162,28 @@ class AdminProductController extends Controller
 
     public function details($id){
         $activeMenu = "product";
-        $category = DB::table("category")
-            ->get();
+//        $category = DB::table("category")
+//            ->get();
+//        $publisher = DB::table("publisher")
+//            ->get();
+//        $author = DB::table("author")
+//            ->get();
+
         $product = DB::table("product")
             ->where("product.id", "=", $id)
             ->join("category", "product.category_id", "=", "category.id")
-            ->select("product.*", "category.category_name")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->get();
 
 
         return view("admin/product-details", [
             "activeMenu" => $activeMenu,
             "product" => $product,
-            "category" => $category
+//            "category" => $category,
+//            "publisher" => $publisher,
+//            "author" => $author,
         ]);
     }
 
@@ -163,7 +195,9 @@ class AdminProductController extends Controller
         $products = DB::table("product")
             ->where("product_name", "LIKE", "%$data%")
             ->join("category", "product.category_id", "=", "category.id")
-            ->select("product.*", "category.category_name")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->orderBy("id")
             ->paginate(10);
 

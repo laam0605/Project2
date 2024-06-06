@@ -101,6 +101,30 @@
 
                     </div>
 
+                    <div class="mt-2 mb-2">
+                        <label for="">Publisher</label>
+
+                        <select name="publisherId" id="" class="form-control form-control-sm" required>
+                            <option value="">None</option>
+                            @foreach($publisher as $object)
+                                <option value="{{$object->id}}" @if($object->id == $product->publisher_id){{'selected'}}@endif>{{$object->publisher_name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
+                    <div class="mt-2 mb-2">
+                        <label for="">Author</label>
+
+                        <select name="authorId" id="" class="form-control form-control-sm" required>
+                            <option value="">None</option>
+                            @foreach($author as $object)
+                                <option value="{{$object->id}}" @if($object->id == $product->author_id){{'selected'}}@endif>{{$object->author_name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
                     <div class="mb-2 mt-2">
                         <button class="btn btn-primary">Save</button>
                     </div>

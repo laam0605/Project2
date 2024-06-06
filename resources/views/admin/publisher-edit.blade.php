@@ -43,7 +43,7 @@
 
 
     <!-- Sidebar Start -->
-        @include("admin.sidebar")
+    @include("admin.sidebar")
     <!-- Sidebar End -->
 
 
@@ -55,52 +55,25 @@
 
 
         <!-- Blank Start -->
-            <div class="container-fluid pt-4 px-4">
-                <h3>Product Details</h3>
-                <table class="table table-hover  table-striped">
-                    @foreach($product as $obj)
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <td>{{$obj->id}}</td>
-                        </tr>
-                        <tr>
-                            <th>Product Name</th>
-                            <td>{{$obj->product_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Price</th>
-                            <td>{{$obj->price}}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <td>{{$obj->description}}</td>
-                        </tr>
-                        <tr>
-                            <th>In Stock</th>
-                            <td>{{$obj->stock}}</td>
-                        </tr>
-                        <tr>
-                            <th>Image</th>
-                            <td><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
-                        </tr>
-                        <tr>
-                            <th>Category Name</th>
-                            <td>{{$obj->category_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Publisher Name</th>
-                            <td>{{$obj->publisher_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Author Name</th>
-                            <td>{{$obj->author_name}}</td>
-                        </tr>
-                        @endforeach
-                        </thead>
-                </table>
-                <a href="/admin/product-list" class="btn btn-primary">Go Back</a>
-            </div>
+        <div class="container-fluid pt-4 px-4">
+            <h3>Edit Publisher</h3>
+            <form action="/admin/publisher-update/{{$publisher->id}}" method="post" name="form1" onsubmit="required()">
+                @csrf
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Id</span>
+                    <input type="text" name="publisherId" value="{{$publisher->id}}" class="form-control" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Publisher Name</span>
+                    <input type="text" name="publisherName" value="{{$publisher->publisher_name}}" class="form-control" pattern="[^0-9]*" title="Publisher Name cannot contains any numbers" required>
+                </div>
+
+                <div class="mb-2 mt-2">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
         <!-- Blank End -->
 
 

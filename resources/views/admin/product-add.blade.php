@@ -96,6 +96,28 @@
                     </div>
 
                     <div class="mt-2 mb-2">
+                        <label for="">Publisher</label>
+                        <select name="publisherId" id="" class="form-control form-control-sm" required>
+                            <option value="">None</option>
+                            @foreach($publisher as $obj)
+                                <option value="{{$obj->id}}">{{$obj->publisher_name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
+                    <div class="mt-2 mb-2">
+                        <label for="">Author</label>
+                        <select name="authorId" id="" class="form-control form-control-sm" required>
+                            <option value="">None</option>
+                            @foreach($author as $obj)
+                                <option value="{{$obj->id}}">{{$obj->author_name}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+
+                    <div class="mt-2 mb-2">
                         <button class="btn btn-primary">Save</button>
                     </div>
                 </form>

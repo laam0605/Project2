@@ -43,7 +43,7 @@
 
 
     <!-- Sidebar Start -->
-        @include("admin.sidebar")
+    @include("admin.sidebar")
     <!-- Sidebar End -->
 
 
@@ -55,52 +55,48 @@
 
 
         <!-- Blank Start -->
-            <div class="container-fluid pt-4 px-4">
-                <h3>Product Details</h3>
-                <table class="table table-hover  table-striped">
-                    @foreach($product as $obj)
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <td>{{$obj->id}}</td>
-                        </tr>
-                        <tr>
-                            <th>Product Name</th>
-                            <td>{{$obj->product_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Price</th>
-                            <td>{{$obj->price}}</td>
-                        </tr>
-                        <tr>
-                            <th>Description</th>
-                            <td>{{$obj->description}}</td>
-                        </tr>
-                        <tr>
-                            <th>In Stock</th>
-                            <td>{{$obj->stock}}</td>
-                        </tr>
-                        <tr>
-                            <th>Image</th>
-                            <td><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
-                        </tr>
-                        <tr>
-                            <th>Category Name</th>
-                            <td>{{$obj->category_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Publisher Name</th>
-                            <td>{{$obj->publisher_name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Author Name</th>
-                            <td>{{$obj->author_name}}</td>
-                        </tr>
-                        @endforeach
-                        </thead>
-                </table>
-                <a href="/admin/product-list" class="btn btn-primary">Go Back</a>
-            </div>
+        <div class="container-fluid pt-4 px-4">
+            <h3>Author List</h3>
+            <form action="/admin/author-search" method="get">
+                <div class="row">
+                    <div class="col-10">
+                        <input placeholder="Search Something......" class="form-control form-control-sm" type="text" name="data" value="{{$data}}">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                    </div>
+                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/author-list">View All</a></span></div>
+
+                </div>
+
+            </form>
+            <a href="/admin/author-add" class="btn btn-primary mt-2 mb-2" >Add Author</a>
+            <table class="table table-striped-columns table-responsive table-hover">
+                <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Author Name</th>
+                    <th colspan="2" class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($author as $obj)
+                    <tr>
+                        <td class="text-center">{{$obj->id}}</td>
+                        <td class="text-center">{{$obj->author_name}}</td>
+                        <td class="text-center">
+                            <a href="/admin/author-edit/{{$obj->id}}" class="btn btn-outline-primary">Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a onclick="return confirm('Are you sure?')" href="/admin/author-delete/{{$obj->id}}" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <!-- Hiển thị các nút phân trang -->
+            {{$author->links()}}
+        </div>
         <!-- Blank End -->
 
 

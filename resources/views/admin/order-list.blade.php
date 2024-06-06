@@ -58,22 +58,23 @@
         <!-- Blank Start -->
         <div class="container-fluid pt-4 px-4">
             <h3>Order List</h3>
-            <form action="/admin/product-search" method="get">
-                <div class="row">
-                    <div class="col-10">
-                        <input placeholder="Search Something......" class="form-control form-control-sm" type="text" name="data" value="">
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
-                    </div>
-                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/order-list">View All</a></span></div>
-                </div>
-            </form>
+{{--            <form action="/admin/product-search" method="get">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-10">--}}
+{{--                        <input placeholder="Search Something......" class="form-control form-control-sm" type="text" name="data" value="">--}}
+{{--                    </div>--}}
+{{--                    <div class="col-auto">--}}
+{{--                        <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/order-list">View All</a></span></div>--}}
+{{--                </div>--}}
+{{--            </form>--}}
 
-            <a href="/admin/order-list/PENDING" class="btn btn-info btn-sm">pending</a>
-            <a href="/admin/order-list/CONFIRMED" class="btn btn-info btn-sm">confirmed</a>
-            <a href="/admin/order-list/SHIPPING" class="btn btn-info btn-sm">shipping</a>
-            <a href="/admin/order-list/RECEIVED" class="btn btn-info btn-sm">received</a>
+                    <a href="/admin/order-list/PENDING" class="btn btn-info btn-sm">pending</a>
+                    <a href="/admin/order-list/CONFIRMED" class="btn btn-info btn-sm">confirmed</a>
+                    <a href="/admin/order-list/SHIPPING" class="btn btn-info btn-sm">shipping</a>
+                    <a href="/admin/order-list/RECEIVED" class="btn btn-info btn-sm">received</a>
+                    <a href="/admin/order-list" class="btn btn-success btn-sm">View All</a>
 
             <table class="table table-hover  table-striped">
                 <thead>

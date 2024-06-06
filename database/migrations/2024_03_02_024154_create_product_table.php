@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string("image");
             $table->integer("stock");
             $table->unsignedBigInteger("category_id")->nullable();
+            $table->unsignedBigInteger("publisher_id")->nullable();
+            $table->unsignedBigInteger("author_id")->nullable();
             $table->foreign("category_id")->references("id")->on("category");
+            $table->foreign("publisher_id")->references("id")->on("publisher");
+            $table->foreign("author_id")->references("id")->on("author");
         });
     }
 

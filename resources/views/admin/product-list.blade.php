@@ -81,6 +81,8 @@
                         <th class="text-center">In Stock</th>
                         <th class="text-center">Image</th>
                         <th class="text-center">Category Name</th>
+                        <th class="text-center">Publisher Name</th>
+                        <th class="text-center">Author Name</th>
                         <th colspan="3" class="text-center">Action</th>
                     </tr>
                     </thead>
@@ -94,6 +96,8 @@
                             <td class="text-center">{{$obj->stock}}</td>
                             <td class="text-center"><img height="50" src="/image_product/{{$obj->image}}" alt=""></td>
                             <td class="text-center">{{$obj->category_name}}</td>
+                            <td class="text-center">{{$obj->publisher_name}}</td>
+                            <td class="text-center">{{$obj->author_name}}</td>
                             <td class="text-center">
                                 <a href="/admin/product-details/{{$obj->id}}" class="btn btn-outline-success btn-sm">Details</a>
                             </td>
