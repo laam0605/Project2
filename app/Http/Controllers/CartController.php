@@ -52,6 +52,7 @@ class CartController extends Controller
     public function cart( Request $request) {
         $setting = DB::table("setting")
             ->first();
+
         $cart = Session::get("cart");
 
         if($cart ==null) {
@@ -60,8 +61,12 @@ class CartController extends Controller
 
         $total =0;
         foreach ($cart as $index => $obj) {
+            if($obj->quantity > $obj->stock){
+                $obj -> quantity = $obj->stock;
+            }
             $total += $obj->price * $obj->quantity;
         }
+
         return view("client/showcart",[
             "cart" => $cart,
             "total" => $total,
