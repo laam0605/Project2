@@ -32,8 +32,8 @@
 
 <header>
     <div class="logo-container">
-        <img src="/image/book-logo.png" alt="book-logo">
-        <a href="#" class="logo">BookStore</a>
+        <img src="/image/book-logo.png" alt="book-logo" href="/">
+        <a href="/" class="logo">BookStore</a>
     </div>
 
     <nav class="nav">

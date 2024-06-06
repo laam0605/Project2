@@ -33,7 +33,7 @@ class AdminOrderController extends Controller
         $activeMenu = "order";
         $orders = DB::table("orders")
             ->where("status", $status)
-            ->get();
+            ->paginate(10);
 
         return view("admin.order-List", [
             "orders" => $orders,

@@ -66,7 +66,7 @@
                     <div class="col-auto">
                         <button class="btn btn-dark btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true" ></i></button>
                     </div>
-                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/product-list">View All</a></span></div>
+                    <div class="col-auto"><span><a class="btn btn-success btn-sm " href="/admin/order-list">View All</a></span></div>
                 </div>
             </form>
 
