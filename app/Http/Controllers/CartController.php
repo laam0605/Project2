@@ -57,9 +57,6 @@ class CartController extends Controller
             ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->get();
 
-        $setting = DB::table("setting")
-            ->first();
-
         $cart = Session::get("cart");
 
         if($cart ==null) {
@@ -96,7 +93,6 @@ class CartController extends Controller
         return view("client/showcart",[
             "cart" => $cart,
             "total" => $total,
-            "setting"=>$setting,
             "product" => $product
         ]);
 
@@ -156,8 +152,6 @@ class CartController extends Controller
     }
 
     public function checkout() {
-        $setting = DB::table("setting")
-            ->first();
 
         $cart = Session::get("cart");
 
@@ -176,14 +170,10 @@ class CartController extends Controller
         return view("client/checkout",[
             "cart" => $cart,
             "total" => $total,
-            "setting"=>$setting
         ]);
     }
 
     public function cartCheckout(Request $request) {
-        $setting = DB::table("setting")
-            ->first();
-
         $total = $request->total;
         $status = "PENDING";
 
@@ -230,7 +220,7 @@ class CartController extends Controller
         }
 
         return view("client/CartCheckoutSuccess",[
-            "setting" => $setting
+
         ]);
     }
 

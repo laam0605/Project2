@@ -11,60 +11,45 @@ class ClientIndexController extends Controller
     public function clientIndex()
     {
         $cart = Session::get("cart");
-        $setting = DB::table("setting")
-            ->first();
 
         $products = DB::table("product")
             ->get();
         return view("client/ClientIndex",[
             "products" => $products,
-            "setting" => $setting,
             "cart" => $cart
         ]);
 
     }
     public function contact() {
         $cart = Session::get("cart");
-        $setting = DB::table("setting")
-            ->first();
 
         return view("client/contact",[
-            "setting" => $setting,
             "cart" => $cart
         ]);
     }
 
     public function aboutUs() {
         $cart = Session::get("cart");
-        $setting = DB::table("setting")
-            ->first();
 
         return view("client/about-us",[
-            "setting" => $setting,
             "cart" => $cart
         ]);
     }
 
     public function feedBack() {
         $cart = Session::get("cart");
-        $setting = DB::table("setting")
-            ->first();
 
         return view("client/feedback",[
-            "setting" => $setting,
             "cart" => $cart
         ]);
     }
 
     public function search() {
         $cart = Session::get("cart");
-        $setting = DB::table("setting")
-            ->first();
 
         $products = DB::table("product")
             ->get();
         return view("client/search",[
-        "setting" => $setting,
         "cart" => $cart,
         "products" => $products
         ]);
@@ -82,8 +67,6 @@ class ClientIndexController extends Controller
             ->first();
 //        $products->quantity = $quantity;
 
-        $setting = DB::table("setting")
-            ->first();
 
         $productRelated = DB::table("product")
             ->where("id","!=", $id)
@@ -92,7 +75,6 @@ class ClientIndexController extends Controller
 
             "products" => $products,
             "productRelated" =>$productRelated,
-            "setting" =>$setting,
             "cart" => $cart
 //            "quantity"=>$quantity
         ]);
