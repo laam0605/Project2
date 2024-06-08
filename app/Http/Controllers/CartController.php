@@ -167,6 +167,7 @@ class CartController extends Controller
         foreach ($cart as $index => $obj) {
             $total += $obj->price * $obj->quantity;
         }
+
         return view("client/checkout",[
             "cart" => $cart,
             "total" => $total,
@@ -177,9 +178,16 @@ class CartController extends Controller
         $total = $request->total;
         $status = "PENDING";
 
+        $id = $request->id;
         $fullName = $request->fullName;
         $address = $request->address;
         $phone = $request->phone;
+
+        DB::table("users")
+            ->where("id", $id)
+            ->update([
+               "address" => $address,
+            ]);
 
         $id = DB::table("orders")
             // insertGetId: insert de lay Id

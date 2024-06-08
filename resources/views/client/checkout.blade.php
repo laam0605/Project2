@@ -197,6 +197,7 @@
     <div id="page-wrap">
             <div class="small-container cart-page">
                 <input type="hidden" name="total" value="{{$total}}">
+                <input type="hidden" name="id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
                 <h1>Checkout</h1>
 {{--                <div id="email">--}}
 {{--                    @csrf--}}
@@ -214,6 +215,20 @@
                 </div>
             </div>
 
+                <div id="email">
+                    <div>
+                        <label for="">Email: </label>
+                        <input type="email" name="email" placeholder="Enter your email" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" required>
+                    </div>
+                </div>
+
+                <div id="phone_number">
+                    <div>
+                        <label for="">Phone Number: </label>
+                        <input type="text" name="phone" placeholder="Enter your phone number" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" required>
+                    </div>
+                </div>
+
                 <div id="address">
                     <div>
                         <label for="">Address: </label>
@@ -221,12 +236,13 @@
                     </div>
                 </div>
 
-                <div id="phone_number">
+                <div id="payment">
                     <div>
-                        <label for="">Phone Number: </label>
-                        <input type="text" name="phone" placeholder="Enter your phone number" id="check-input" required>
+                        <label for="">Payment Method: </label>
+                        <input style="font-weight: bold" type="text" name="payment" id="check-input" value="Cash On Delivery" disabled required>
                     </div>
                 </div>
+
             </div>
     </div>
     <div id="page-wrap2">
