@@ -232,7 +232,7 @@
                 <div id="address">
                     <div>
                         <label for="">Address: </label>
-                        <input type="text" name="address" placeholder="Enter your address" id="check-input" required>
+                        <input type="text" name="address" placeholder="Enter your address" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->address}}" required>
                     </div>
                 </div>
 
