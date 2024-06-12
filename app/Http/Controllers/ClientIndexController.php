@@ -85,6 +85,16 @@ class ClientIndexController extends Controller
         dd($cart);
     }
 
+    public function shop() {
+        $cart = Session::get("cart");
+
+        $products = DB::table("product")
+            ->get();
+        return view("client/shop", [
+            "products" => $products,
+            "cart" => $cart
+        ]);
+    }
 
 }
 
