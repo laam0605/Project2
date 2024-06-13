@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\View\View;
 
 class ClientIndexController extends Controller
 {
@@ -85,11 +86,11 @@ class ClientIndexController extends Controller
         dd($cart);
     }
 
-    public function shop() {
+    public function shop():View {
         $cart = Session::get("cart");
 
         $products = DB::table("product")
-            ->get();
+            ->paginate(8);
         return view("client/shop", [
             "products" => $products,
             "cart" => $cart

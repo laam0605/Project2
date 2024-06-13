@@ -80,14 +80,15 @@
                     <div class="row">
                         @foreach($products as $obj)
                         <div class="col-3">
-                            <a href=""><img src="/image_product/{{$obj -> image}}" class="product-image"> </a>
-                            <h5 class="card-title"><b>{{$obj->product_name}}</b></h5>
+                            <a href="/product-details/{{$obj->id}}"><img src="/image_product/{{$obj -> image}}" class="product-image"> </a>
+                            <h4><b>{{$obj->product_name}}</b></h4>
                             <p>Description: {{$obj->description}}</p>
                             <p>Price: {{$obj->price}} đ</p>
-                            <a href="#" target="_blank" class="btn btn-success button-text"><i class="far fa-eye" aria-hidden="true"></i> View Details</a>
+                            <a href="/product-details/{{$obj->id}}" class="btn btn-success button-text"><i class="far fa-eye" aria-hidden="true"></i> View Details</a>
                             <div>&nbsp;</div>
                         </div>
                         @endforeach
+                        {{$products->links()}}
                     </div>
                     <!-- Sorting by <div class="row"> -->
 
