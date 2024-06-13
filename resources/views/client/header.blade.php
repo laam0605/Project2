@@ -41,7 +41,7 @@
         <a href="/about-us">About<span></span></a>
         <a href="/shop">Shop<span></span></a>
         <a href="/feedback">Feedback<span></span></a>
-        <a href="/contact">Contact<span></span></a>
+{{--        <a href="/contact">Contact<span></span></a>--}}
     </nav>
 
     <div class="header-icons">
