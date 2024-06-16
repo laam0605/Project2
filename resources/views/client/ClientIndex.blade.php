@@ -125,7 +125,7 @@
                     </div>
                     <div class="content">
                         <h3><a >{{$obj->product_name}}</h3>
-                        <div class="price">{{$obj->price}} đ<span>$821.88</span></div>
+                        <div class="price">{{$obj->price}} đ</div>
                         <p class="text-dark fs-5 fw-bold mb-0">{{$obj->description}}</p>
 {{--                        <a href="#" class="featured-btn">Add to Cart</a>--}}
                     </div>
@@ -133,32 +133,32 @@
         @endforeach
 </section>
 
-<section class="arrivals" id="arrivals">
+{{--<section class="arrivals" id="arrivals">--}}
 
-    <h1 class="heading"><span>New Arrivals</span></h1>
-    <p>New books are here! Find the perfect book for you.</p>
+{{--    <h1 class="heading"><span>New Arrivals</span></h1>--}}
+{{--    <p>New books are here! Find the perfect book for you.</p>--}}
 
-    <div class="swiper arrivals-slider">
+{{--    <div class="swiper arrivals-slider">--}}
 
-        <div class="swiper-wrapper">
-            @foreach($products as $obj)
-                <a href="#" class="swiper-slide box">
-                    <div class="arrivals-image">
-                        <img src="/image_product/{{$obj -> image}}" alt="" style="width: 200px; height: 200px">
-                    </div>
-                    <div class="arrivals-content">
-                        <h3>{{$obj -> product_name}}</h3>
-                        <div class="arrivals-price">{{$obj -> price}} đ</div>
-                        <div class="arrivals-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
+{{--        <div class="swiper-wrapper">--}}
+{{--            @foreach($products as $obj)--}}
+{{--                <a href="#" class="swiper-slide box">--}}
+{{--                    <div class="arrivals-image">--}}
+{{--                        <img src="/image_product/{{$obj -> image}}" alt="" style="width: 200px; height: 200px">--}}
+{{--                    </div>--}}
+{{--                    <div class="arrivals-content">--}}
+{{--                        <h3>{{$obj -> product_name}}</h3>--}}
+{{--                        <div class="arrivals-price">{{$obj -> price}} đ</div>--}}
+{{--                        <div class="arrivals-stars">--}}
+{{--                            <i class="fas fa-star"></i>--}}
+{{--                            <i class="fas fa-star"></i>--}}
+{{--                            <i class="fas fa-star"></i>--}}
+{{--                            <i class="fas fa-star"></i>--}}
+{{--                            <i class="fas fa-star"></i>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
+{{--            @endforeach--}}
 
 
 {{--            <a href="#" class="swiper-slide box">--}}
@@ -314,16 +314,16 @@
 {{--                </div>--}}
 {{--            </a>--}}
 
-        </div>
-    </div>
-</section>
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 <section class="deal">
     <div class="content">
         <h3>Deal of the Day</h3>
         <h1>Enjoy Exclusive Discounts on Books Today!</h1>
         <p>Indulge your passion for reading while saving big with our exclusive selection of discounted books. Explore a treasure trove of literary gems at unbeatable prices, where quality meets affordability. </p>
-        <a href="shop.html" class="deal-btn">Shop Now</a>
+        <a href="/shop" class="deal-btn">Shop Now</a>
     </div>
 
     <div class="image">
@@ -339,7 +339,7 @@
             <div class="swiper-slide box">
                 <img src="img/people-1.jpg" alt="">
                 <h3>Mary Jane</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
+                <p>Interesting!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -352,7 +352,7 @@
             <div class="swiper-slide box">
                 <img src="img/people-2.jpg" alt="">
                 <h3>Juan Cruz</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
+                <p>A lot of good books!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -365,33 +365,7 @@
             <div class="swiper-slide box">
                 <img src="img/people-3.jpg" alt="">
                 <h3>Crisostomo Ibarra</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="img/people-4.jpg" alt="">
-                <h3>Maria Clara</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <img src="img/people-5.jpg" alt="">
-                <h3>John Doe</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
+                <p>The books are really useful.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -404,7 +378,7 @@
             <div class="swiper-slide box">
                 <img src="img/people-6.jpg" alt="">
                 <h3>Queen Charlotte</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
+                <p>Very Nice!</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>

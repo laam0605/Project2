@@ -61,64 +61,64 @@
     </div>
 </section>
 
-<section class="founders">
-    <div class="about-header">
-        <h1>Our Team</h1>
-    </div>
-    <div class="sub-container">
-        <div class="teams">
-            <img src="img/people-1.jpg" alt="">
-            <div class="name">Esmay Stace</div>
-            <div class="desig">Developer</div>
-            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!
-            </div>
+{{--<section class="founders">--}}
+{{--    <div class="about-header">--}}
+{{--        <h1>Our Team</h1>--}}
+{{--    </div>--}}
+{{--    <div class="sub-container">--}}
+{{--        <div class="teams">--}}
+{{--            <img src="img/people-1.jpg" alt="">--}}
+{{--            <div class="name">Esmay Stace</div>--}}
+{{--            <div class="desig">Developer</div>--}}
+{{--            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!--}}
+{{--            </div>--}}
 
-            <div class="about-social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+{{--            <div class="about-social-links">--}}
+{{--                <a href="#"><i class="fab fa-facebook"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-instagram"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-twitter"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-github"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="teams">
-            <img src="img/people-2.jpg" alt="">
-            <div class="name">Cloe Cisneros </div>
-            <div class="desig">Designer</div>
-            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!
-            </div>
+{{--        <div class="teams">--}}
+{{--            <img src="img/people-2.jpg" alt="">--}}
+{{--            <div class="name">Cloe Cisneros </div>--}}
+{{--            <div class="desig">Designer</div>--}}
+{{--            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!--}}
+{{--            </div>--}}
 
-            <div class="about-social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+{{--            <div class="about-social-links">--}}
+{{--                <a href="#"><i class="fab fa-facebook"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-instagram"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-twitter"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-github"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="teams">
-            <img src="img/people-3.jpg" alt="">
-            <div class="name">Sanjay Mullen </div>
-            <div class="desig">Manager</div>
-            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!
-            </div>
+{{--        <div class="teams">--}}
+{{--            <img src="img/people-3.jpg" alt="">--}}
+{{--            <div class="name">Sanjay Mullen </div>--}}
+{{--            <div class="desig">Manager</div>--}}
+{{--            <div class="about-founders">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum labore quam reprehenderit vitae aliquam dicta!--}}
+{{--            </div>--}}
 
-            <div class="about-social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
+{{--            <div class="about-social-links">--}}
+{{--                <a href="#"><i class="fab fa-facebook"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-instagram"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-twitter"></i></a>--}}
+{{--                <a href="#"><i class="fab fa-github"></i></a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 {{--FOOTER--}}
     @include("client.footer")
 {{--FOOTER--}}
 
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>

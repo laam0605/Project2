@@ -1,4 +1,8 @@
 <style>
+    a {
+        text-decoration: none;
+    }
+
     /* Style the dropdown menu */
     .login-dropdown {
         position: relative;
@@ -32,7 +36,7 @@
 
 <header>
     <div class="logo-container">
-        <img src="/image/book-logo.png" alt="book-logo" href="/">
+        <img src="/image/book-logo.png" alt="book-logo">
         <a href="/" class="logo">BookStore</a>
     </div>
 

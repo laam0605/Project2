@@ -125,10 +125,10 @@
             Do not have account?
             <a href="/register"> Register Account</a>
         </div>
-        <div class="form-group">
-            Forgot your password?
-            <a href="change-password">Change Password</a>
-        </div>
+{{--        <div class="form-group">--}}
+{{--            Forgot your password?--}}
+{{--            <a href="change-password">Change Password</a>--}}
+{{--        </div>--}}
 
     </form>
 </div>

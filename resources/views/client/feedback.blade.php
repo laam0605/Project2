@@ -29,99 +29,75 @@
     </div>
 </section>
 
-    <section class="reviews" id="reviews">
-        <h1 class="reviews-heading"><span>Customer's feedback</span></h1>
-        <div class="swiper reviews-slider">
-            <div class="swiper-wrapper">
+<section class="reviews" id="reviews">
+    <h1 class="reviews-heading"><span>Client's Reviews</span></h1>
+    <div class="swiper reviews-slider">
+        <div class="swiper-wrapper">
 
-                <div class="swiper-slide box" >
-                    <img src="img/people-1.jpg" alt="">
-                    <h3>Mary Jane</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
+            <div class="swiper-slide box">
+                <img src="img/people-1.jpg" alt="">
+                <h3>Mary Jane</h3>
+                <p>Interesting!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
-
-                <div class="swiper-slide box">
-                    <img src="img/people-2.jpg" alt="">
-                    <h3>Juan Cruz</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="img/people-3.jpg" alt="">
-                    <h3>Crisostomo Ibarra</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="img/people-4.jpg" alt="">
-                    <h3>Maria Clara</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="img/people-5.jpg" alt="">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="img/people-6.jpg" alt="">
-                    <h3>Queen Charlotte</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laboriosam eaque assumenda fuga magni tempore, distinctio commodi hic cum consectetur quo saepe, quos expedita et! Eaque, deleniti. Iusto, modi eveniet.</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="swiper-slide box">
+                <img src="img/people-2.jpg" alt="">
+                <h3>Juan Cruz</h3>
+                <p>A lot of good books!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="img/people-3.jpg" alt="">
+                <h3>Crisostomo Ibarra</h3>
+                <p>The books are really useful.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="img/people-6.jpg" alt="">
+                <h3>Queen Charlotte</h3>
+                <p>Very Nice!</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
 {{--FOOTER--}}
 @include("client.footer")
 {{--FOOTER--}}
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
 <!--Custom JS file link-->
-<script src="js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 </html>

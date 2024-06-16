@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
@@ -45,14 +45,24 @@ class ClientIndexController extends Controller
         ]);
     }
 
-    public function search() {
+    public function search(Request $request) {
+        $data = "";
+        $data = $request->data;
         $cart = Session::get("cart");
 
         $products = DB::table("product")
+            ->where("product_name", "LIKE", "%$data%")
+            ->join("category", "product.category_id", "=", "category.id")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+            ->orderBy("id")
             ->get();
+
         return view("client/search",[
-        "cart" => $cart,
-        "products" => $products
+            "cart" => $cart,
+            "products" => $products,
+            "data" => $data,
         ]);
     }
 
