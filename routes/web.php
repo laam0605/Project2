@@ -82,7 +82,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 });
 
 
-// CLIENT CART MIDDLEWARE
+// CLIENT CART & ORDERS MIDDLEWARE
 Route::get('/cart', [CartController::class, "cart"])->name('cart');
 
 Route::middleware(['cart'])->group(function () {
@@ -93,6 +93,10 @@ Route::get('/cartRemoveAll', [CartController::class, "cartRemoveAll"]);
 Route::get('/cart/update/{type}/{id}/{quantity}', [CartController::class, "cartUpdate"]);
 Route::get('/checkout', [CartController::class, "checkout"]);
 Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
+
+Route::get('/order', [ClientIndexController::class, "order"]);
+Route::get('/order-update-status/{id}/{status}', [ClientIndexController::class, "ordersUpdateStatus"]);
+Route::get("/order-details/{id}", [ClientIndexController::class, "orderDetails"]);
 
 });
 
