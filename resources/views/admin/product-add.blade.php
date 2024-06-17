@@ -80,6 +80,11 @@
                     </div>
 
                     <div class="mt-2 mb-2">
+                        <label for="">ISBN Code</label>
+                        <input type="text" name="isbn" class="form-control form-control-sm" required/>
+                    </div>
+
+                    <div class="mt-2 mb-2">
                         <label for="">Image</label>
                         <input type="file" name="image" class="form-control form-control-sm" />
                     </div>

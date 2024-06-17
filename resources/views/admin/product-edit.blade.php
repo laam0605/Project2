@@ -85,6 +85,11 @@
                     </div>
 
                     <div class="input-group mb-3">
+                        <span class="input-group-text"><b>ISBN Code</b></span>
+                        <input type="text" name="isbn" value="{{$product->isbn_code}}" class="form-control">
+                    </div>
+
+                    <div class="input-group mb-3">
                         <span class="input-group-text"><b>Image</b></span>
                         <input type="file" name="image" value="{{$product->image}}" class="form-control">
                     </div>

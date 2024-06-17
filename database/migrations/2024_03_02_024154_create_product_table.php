@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("description");
             $table->string("image");
             $table->integer("stock");
+            $table->string("isbn_code");
             $table->unsignedBigInteger("category_id")->nullable();
             $table->unsignedBigInteger("publisher_id")->nullable();
             $table->unsignedBigInteger("author_id")->nullable();

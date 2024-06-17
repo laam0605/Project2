@@ -61,6 +61,7 @@
 
                     <div class = "product-detail">
                         <ul>
+                            <li><p>ISBN Code: {{$products->isbn_code}}</p></li>
                             <li><p>Description: {{$products->description}}</p></li>
                             <li><p>Category: {{$products->category_name}}</p></li>
                             <li><p>Publisher: {{$products->publisher_name}}</p></li>

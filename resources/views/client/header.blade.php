@@ -50,7 +50,9 @@
 
     <div class="header-icons">
         <a href="/search"><i class="fa fa-search"></i></a>
+
         <a href="/cart"><i class="fa fa-shopping-cart" style="padding-left: 2px">({{ empty($cart) ? 0 : count($cart) }})</i></a>
+        <a href="/order"><i class="fas fa-luggage-cart"></i></a>
 {{--        <i class="fa fa-sign-out"></i>--}}
         @if(\Illuminate\Support\Facades\Auth::check())
             <div class="login-dropdown">
@@ -62,6 +64,8 @@
 {{--                <div class="login-dropdown-content">--}}
                     <a href="/logout"><i class="fa fa-sign-out"></i></a>
            </div>
+
+
     </div>
         @else
             <a href="/login" class="login-btn">Login</a>

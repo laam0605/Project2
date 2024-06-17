@@ -81,6 +81,10 @@
                             <td>{{$product->stock}}</td>
                         </tr>
                         <tr>
+                            <th>ISBN</th>
+                            <td>{{$product->isbn_code}}</td>
+                        </tr>
+                        <tr>
                             <th>Image</th>
                             <td><img height="100" src="/image_product/{{$product->image}}" alt=""></td>
                         </tr>

@@ -66,6 +66,7 @@ class AdminProductController extends Controller
         $price = $request->price;
         $description = $request->description;
         $stock = $request->stock;
+        $isbn = $request->isbn;
         $categoryId = $request->categoryId;
         $publisherId = $request->publisherId;
         $authorId = $request->authorId;
@@ -89,6 +90,7 @@ class AdminProductController extends Controller
                     "description" => $description,
                     "image" => $imageName,
                     "stock" => $stock,
+                    "isbn_code" => $isbn,
                     "category_id" => $categoryId,
                     "publisher_id" => $publisherId,
                     "author_id" => $authorId
@@ -126,6 +128,7 @@ class AdminProductController extends Controller
         $price = $request->price;
         $description = $request->description;
         $stock = $request->stock;
+        $isbn = $request->isbn;
         $categoryId = $request->categoryId;
         $publisherId = $request->publisherId;
         $authorId = $request->authorId;
@@ -151,6 +154,7 @@ class AdminProductController extends Controller
                     "description" => $description,
                     "image" => $imageName,
                     "stock" => $stock,
+                    "isbn_code" => $isbn,
                     "category_id" => $categoryId,
                     "publisher_id" => $publisherId,
                     "author_id" => $authorId
