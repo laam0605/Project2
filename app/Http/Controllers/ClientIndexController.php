@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -105,6 +106,47 @@ class ClientIndexController extends Controller
             "products" => $products,
             "cart" => $cart
         ]);
+    }
+
+    public function order():View
+    {
+        $orders = DB::table("orders")
+            ->where("orders.phone", "=", Auth::user()->phone)
+            ->paginate(8);
+
+
+        return view("client/order", [
+            "orders" => $orders
+        ]);
+    }
+
+    public function orderDetails($id)
+    {
+        $ordersTotal = DB::table("orders")
+            ->where("orders.id", "=", $id)
+            ->get();
+
+        $orderDetails = DB::table("order_details")
+            ->where("orders.id", "=", $id)
+            ->join("orders", "order_details.order_id", "=", "orders.id")
+            ->join("product", "order_details.product_id", "=", "product.id")
+            ->select("product.product_name", "product.description", "product.image", "orders.id", "order_details.price", "order_details.quantity")
+            ->get();
+
+
+        return view("client/order-details", [
+            "orderDetails" => $orderDetails,
+            "ordersTotal" => $ordersTotal
+        ]);
+    }
+
+    public function ordersUpdateStatus($id, $status) {
+        DB::table("orders")
+            ->where("id", $id)
+            ->update([
+                "status" => $status
+            ]);
+        return redirect ('/order');
     }
 
 }

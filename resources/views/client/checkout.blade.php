@@ -211,21 +211,24 @@
                 @csrf
                 <div>
                     <label for="">Full Name: </label>
-                    <input type="text" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" required>
+                    <input style="font-weight: bold" type="text" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" disabled required>
+                    <input type="hidden" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
                 </div>
             </div>
 
                 <div id="email">
                     <div>
                         <label for="">Email: </label>
-                        <input type="email" name="email" placeholder="Enter your email" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" required>
+                        <input style="font-weight: bold" type="email" name="email" placeholder="Enter your email" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->email}}" disabled required>
+                        <input type="hidden" name="email" placeholder="Enter your email" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->email}}">
                     </div>
                 </div>
 
                 <div id="phone_number">
                     <div>
                         <label for="">Phone Number: </label>
-                        <input type="text" name="phone" placeholder="Enter your phone number" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->phone}}" required>
+                        <input style="font-weight: bold" type="number" name="phone_display" placeholder="Enter your phone number" id="check-input" value="{{ \Illuminate\Support\Facades\Auth::user()->phone }}" required disabled>
+                        <input type="hidden" name="phone" value="{{ \Illuminate\Support\Facades\Auth::user()->phone }}">
                     </div>
                 </div>
 

@@ -63,16 +63,7 @@
 
                 <div class="col-lg-12" style="padding-left: 30px;">
                     <div class="row">
-                        <div class="col">
-                            <select class="form-control">
-                                <option value="">Default Sorting</option>
-                                <option value="popularity">Sorting by popularity</option>
-                                <option value="average">Sorting by average</option>
-                                <option value="latest">Sorting by latest</option>
-                                <option value="low">Sorting by low</option>
-                                <option value="high">Sorting by high</option>
-                            </select>
-                        </div>
+                        <h4 class="text-center text-black mt-2">BOOKS</h4>
                     </div>
 
                     <div>&nbsp;</div>

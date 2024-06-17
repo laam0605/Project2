@@ -13,6 +13,9 @@ Route::get('/contact', [ClientIndexController::class, "contact"]);
 Route::get('/about-us', [ClientIndexController::class, "aboutUs"]);
 Route::get('/feedback', [ClientIndexController::class, "feedBack"]);
 Route::get('/search', [ClientIndexController::class, "search"]);
+Route::get('/order', [ClientIndexController::class, "order"]);
+Route::get('/order-update-status/{id}/{status}', [ClientIndexController::class, "ordersUpdateStatus"]);
+Route::get("/order-details/{id}", [ClientIndexController::class, "orderDetails"]);
 Route::get("/product-details/{id}", [ClientIndexController::class, "productDetails"]);
 
 

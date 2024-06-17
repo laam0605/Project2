@@ -108,7 +108,7 @@
                         @endif
                         @if($obj->status === 'CONFIRMED')
                             <td class="text-center">
-                                <a href="/admin/order-update-status/{{$obj -> id}}/SHIPPING" class="btn btn-outline-warning btn-sm">SHIPPING</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/SHIPPING" class="btn btn-outline-warning btn-sm">Shipping</a>
                             </td>
                         @endif
                         @if($obj->status === 'SHIPPING')

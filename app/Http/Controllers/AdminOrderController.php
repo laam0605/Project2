@@ -12,6 +12,7 @@ class AdminOrderController extends Controller
     {
         $activeMenu = "order";
         $orders = DB::table("orders")
+            ->orderBy("created_at", "DESC")
             ->paginate(10);
 
         return view("admin.order-List", [
