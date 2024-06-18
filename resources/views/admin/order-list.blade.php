@@ -91,7 +91,7 @@
                 <tbody>
                 @foreach($orders as $obj)
                     <tr>
-                        <td class="text-center">{{$obj->id}}</td>
+                        <td class="text-center"><a style="text-decoration: none" href="/admin/order-details/{{$obj->id}}">{{$obj->id}}</a></td>
                         <td class="text-center">{{$obj->full_name}}</td>
                         <td class="text-center">{{$obj->address}}</td>
                         <td class="text-center">{{$obj->phone}}</td>
