@@ -72,6 +72,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::get('/order-list', [AdminOrderController::class, "getAll"]);
     Route::get('/order-list/{status}', [AdminOrderController::class, "filter"]);
     Route::get('/order-update-status/{id}/{status}', [AdminOrderController::class, "ordersUpdateStatus"]);
+    Route::get('/order-details/{id}', [AdminOrderController::class, "orderDetails"]);
 
 // ADMIN STATS
     Route::get('/stats', [AdminStatsController::class, "statistics"]);

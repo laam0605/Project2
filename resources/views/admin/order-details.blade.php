@@ -43,7 +43,7 @@
 
 
     <!-- Sidebar Start -->
-
+    @include("admin.sidebar")
     <!-- Sidebar End -->
 
 
@@ -56,7 +56,48 @@
 
         <!-- Blank Start -->
         <div class="container-fluid pt-4 px-4">
+            <div class="container-fluid pt-4 px-4">
+                <h3>Order Details</h3>
+                @foreach($orderDetails as $obj)
+                    <table class="table table-hover table-striped">
 
+                        <thead>
+                        <tr>
+                            <th class="text-start">Product Id</th>
+                            <td class="text-center">{{$obj->id}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-start">Product Name</th>
+                            <td class="text-center">{{$obj->product_name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-start">Price</th>
+                            <td class="text-center">{{$obj->price}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-start">Quantity</th>
+                            <td class="text-center">{{$obj->quantity}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-start">Description</th>
+                            <td class="text-center">{{$obj->description}}</td>
+                        </tr>
+
+                        <tr>
+                            <th class="text-start">Image</th>
+                            <td class="text-center"><img height="100" src="/image_product/{{$obj->image}}" alt=""></td>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div>&nbsp;</div>
+                @endforeach
+                <h3 class="text-start">Total: {{$orderDetails[0]->total}}</h3>
+                <a href="/admin/order-list" class="btn btn-primary">Go Back</a>
+            </div>
         </div>
         <!-- Blank End -->
 

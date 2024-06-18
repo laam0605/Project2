@@ -44,12 +44,18 @@ class AdminOrderController extends Controller
 
     public function orderDetails($id)
     {
+        $activeMenu = "order";
         $orderDetails = DB::table("order_details")
             ->where("orders.id", "=", $id)
             ->join("orders", "order_details.order_id", "=", "orders.id")
             ->join("product", "order_details.product_id", "=", "product.id")
-            ->select("product.product_name", "product.description", "product.image", "orders.id", "order_details.price", "order_details.quantity")
+            ->select("product.product_name", "product.description", "product.image", "product.id", "order_details.price", "order_details.quantity", "orders.total")
             ->get();
+
+        return view("admin.order-details", [
+            "orderDetails" => $orderDetails,
+            "activeMenu" => $activeMenu,
+        ]);
     }
 
 }
