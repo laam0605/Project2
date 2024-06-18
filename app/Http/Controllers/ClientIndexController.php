@@ -120,8 +120,10 @@ class ClientIndexController extends Controller
         ]);
     }
 
-    public function orderDetails($id)
+    public function orderDetails($id, $id2)
     {
+        $idcus = $id2;
+
         $ordersTotal = DB::table("orders")
             ->where("orders.id", "=", $id)
             ->get();
@@ -136,7 +138,8 @@ class ClientIndexController extends Controller
 
         return view("client/order-details", [
             "orderDetails" => $orderDetails,
-            "ordersTotal" => $ordersTotal
+            "ordersTotal" => $ordersTotal,
+            "idcus" => $idcus
         ]);
     }
 

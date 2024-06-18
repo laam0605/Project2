@@ -96,7 +96,7 @@ Route::post('/cart/checkout', [CartController::class, "cartCheckout"]);
 
 Route::get('/order', [ClientIndexController::class, "order"]);
 Route::get('/order-update-status/{id}/{status}', [ClientIndexController::class, "ordersUpdateStatus"]);
-Route::get("/order-details/{id}", [ClientIndexController::class, "orderDetails"]);
+Route::get("/order-details/{id}/{id2}", [ClientIndexController::class, "orderDetails"]);
 
 });
 

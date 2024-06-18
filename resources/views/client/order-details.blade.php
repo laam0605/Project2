@@ -39,6 +39,7 @@
                     <div>&nbsp;</div>
 
                     <div class="row">
+                        <h4 class="mb-3">Order: {{$idcus}}</h4>
                         @foreach($orderDetails as $obj)
                             <div class="col-3">
                                 <h5>Book Title: {{$obj->product_name}}</h5>

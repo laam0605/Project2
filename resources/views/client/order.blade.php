@@ -41,7 +41,7 @@
                     <div class="row">
                         @foreach($orders as $i => $obj)
                             <div class="col-3">
-                                <h4>Order ID: {{$i + 1}}</h4>
+                                <h4>Order: {{$i + 1}}</h4>
 {{--                                <h5>Book Title: {{$obj->product_name}}</h5>--}}
 {{--                                <p>Quantity: {{$obj->quantity}}</p>--}}
 {{--                                <p>Price: {{$obj->price}} đ</p>--}}
@@ -51,7 +51,7 @@
                                 <p>Phone Number: {{$obj->phone}}</p>
                                 <h6>Status: {{$obj->status}}</h6>
                                 <h5>Total: {{$obj->total}} đ</h5>
-                                <a href="/order-details/{{$obj->id}}" class="btn btn-success btn-sm"><i class="far fa-eye" aria-hidden="true"></i> View Details</a> <br>
+                                <a href="/order-details/{{$obj->id}}/{{$i + 1}}" class="btn btn-success btn-sm"><i class="far fa-eye" aria-hidden="true"></i> View Details</a> <br>
                                 @if($obj->status == "PENDING" || $obj->status == "CONFIRMED")
                                     <a onclick="return confirm('Are you sure to cancel the order?')" class="btn btn-danger btn-sm mt-1" href="/order-update-status/{{$obj->id}}/CANCELED">Cancel Order</a>
                                 @else
