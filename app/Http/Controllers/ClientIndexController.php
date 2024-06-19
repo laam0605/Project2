@@ -100,11 +100,27 @@ class ClientIndexController extends Controller
     public function shop():View {
         $cart = Session::get("cart");
 
+        $category = DB::table("category")
+            ->get();
+        $publisher = DB::table("publisher")
+            ->get();
+        $author = DB::table("author")
+            ->get();
+
         $products = DB::table("product")
+            ->join("category", "product.category_id", "=", "category.id")
+            ->join("publisher", "product.publisher_id", "=", "publisher.id")
+            ->join("author", "product.author_id", "=", "author.id")
+            ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
             ->paginate(8);
+
+
         return view("client/shop", [
             "products" => $products,
-            "cart" => $cart
+            "cart" => $cart,
+            "category" => $category,
+            "publisher" => $publisher,
+            "author" => $author
         ]);
     }
 
@@ -157,6 +173,76 @@ class ClientIndexController extends Controller
                 "status" => $status
             ]);
         return redirect ('/order');
+    }
+
+    public function filter($status)
+    {
+        $cart = Session::get("cart");
+        $category = DB::table("category")
+            ->get();
+        $publisher = DB::table("publisher")
+            ->get();
+        $author = DB::table("author")
+            ->get();
+
+        switch($status){
+            case "priceAsc":
+                $products = DB::table("product")
+                    ->join("category", "product.category_id", "=", "category.id")
+                    ->join("publisher", "product.publisher_id", "=", "publisher.id")
+                    ->join("author", "product.author_id", "=", "author.id")
+                    ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+                    ->orderBy("price", "asc")
+                    ->paginate(8);
+                break;
+            case "priceDesc":
+                $products = DB::table("product")
+                    ->join("category", "product.category_id", "=", "category.id")
+                    ->join("publisher", "product.publisher_id", "=", "publisher.id")
+                    ->join("author", "product.author_id", "=", "author.id")
+                    ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+                    ->orderBy("price", "desc")
+                    ->paginate(8);
+                break;
+            case "az":
+                $products = DB::table("product")
+                    ->join("category", "product.category_id", "=", "category.id")
+                    ->join("publisher", "product.publisher_id", "=", "publisher.id")
+                    ->join("author", "product.author_id", "=", "author.id")
+                    ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+                    ->orderBy("product_name", "asc")
+                    ->paginate(8);
+                break;
+            case "za":
+                $products = DB::table("product")
+                    ->join("category", "product.category_id", "=", "category.id")
+                    ->join("publisher", "product.publisher_id", "=", "publisher.id")
+                    ->join("author", "product.author_id", "=", "author.id")
+                    ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+                    ->orderBy("product_name", "desc")
+                    ->paginate(8);
+                break;
+            case $status;
+                $products =  DB::table("product")
+                    ->where("category.category_name", "=", $status)
+                    ->orWhere("publisher.publisher_name", "=", $status)
+                    ->orWhere("author.author_name", "=", $status)
+                    ->join("category", "product.category_id", "=", "category.id")
+                    ->join("publisher", "product.publisher_id", "=", "publisher.id")
+                    ->join("author", "product.author_id", "=", "author.id")
+                    ->select("product.*", "category.category_name", "publisher.publisher_name", "author.author_name")
+                    ->paginate(8);
+
+        }
+
+
+        return view("client.shop", [
+            "products" => $products,
+            "cart" => $cart,
+            "category" => $category,
+            "publisher" => $publisher,
+            "author" => $author
+        ]);
     }
 
 }
