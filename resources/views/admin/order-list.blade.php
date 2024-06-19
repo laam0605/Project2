@@ -70,10 +70,10 @@
 {{--                </div>--}}
 {{--            </form>--}}
 
-                    <a href="/admin/order-list/PENDING" class="btn btn-info btn-sm">pending</a>
-                    <a href="/admin/order-list/CONFIRMED" class="btn btn-info btn-sm">confirmed</a>
-                    <a href="/admin/order-list/SHIPPING" class="btn btn-info btn-sm">shipping</a>
-                    <a href="/admin/order-list/RECEIVED" class="btn btn-info btn-sm">received</a>
+                    <a href="/admin/order-list/PENDING" class="btn btn-info btn-sm">Pending</a>
+                    <a href="/admin/order-list/CONFIRMED" class="btn btn-info btn-sm">Confirmed</a>
+                    <a href="/admin/order-list/SHIPPING" class="btn btn-info btn-sm">Shipping</a>
+                    <a href="/admin/order-list/RECEIVED" class="btn btn-info btn-sm">Received</a>
                     <a href="/admin/order-list" class="btn btn-success btn-sm">View All</a>
 
             <table class="table table-hover  table-striped">
@@ -113,7 +113,7 @@
                         @endif
                         @if($obj->status === 'SHIPPING')
                             <td class="text-center">
-                                <a href="/admin/order-update-status/{{$obj -> id}}/RECEIVED" class="btn btn-outline-warning btn-sm">Received</a>
+                                <a href="/admin/order-update-status/{{$obj -> id}}/RECEIVED" class="btn btn-outline-primary btn-sm">Received</a>
                             </td>
                         @endif
 {{--                        <td class="text-center">--}}

@@ -39,6 +39,9 @@
                     <div>&nbsp;</div>
 
                     <div class="row">
+                        @if(count($orders) == 0)
+                            <h4>There are no orders!!</h4>
+                        @endif
                         @foreach($orders as $i => $obj)
                             <div class="col-3">
                                 <h4>Order: {{$i + 1}}</h4>

@@ -59,14 +59,14 @@
                 <h3>Statistics</h3>
                 <div class="row">
                     <div class="col-3">
-                        <h5>Doanh thu lon nhat theo thang</h5>
-                        <p>thang: {{$obj1->month}}</p>
-                        <p>tong tien: {{$obj1->revenue}}</p>
+                        <h5>Biggest revenue by month</h5>
+                        <p>Month: {{$obj1->month}}</p>
+                        <p>Revenue: {{$obj1->revenue}}</p>
                     </div>
                     <div class="col-3">
-                        <h5>Doanh thu lon nhat theo nam</h5>
-                        <p>nam: {{$obj2->year}}</p>
-                        <p>tong tien: {{$obj2->revenue}}</p>
+                        <h5>Biggest revenue by year</h5>
+                        <p>Year: {{$obj2->year}}</p>
+                        <p>Revenue: {{$obj2->revenue}}</p>
                     </div>
                 </div>
             </div>

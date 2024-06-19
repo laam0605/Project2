@@ -110,18 +110,23 @@ class ClientIndexController extends Controller
 
     public function order():View
     {
+        $cart = Session::get("cart");
+
         $orders = DB::table("orders")
             ->where("orders.phone", "=", Auth::user()->phone)
             ->paginate(8);
 
 
         return view("client/order", [
-            "orders" => $orders
+            "orders" => $orders,
+            "cart" => $cart
         ]);
     }
 
     public function orderDetails($id, $id2)
     {
+        $cart = Session::get("cart");
+
         $idcus = $id2;
 
         $ordersTotal = DB::table("orders")
@@ -139,11 +144,13 @@ class ClientIndexController extends Controller
         return view("client/order-details", [
             "orderDetails" => $orderDetails,
             "ordersTotal" => $ordersTotal,
-            "idcus" => $idcus
+            "idcus" => $idcus,
+            "cart" => $cart,
         ]);
     }
 
     public function ordersUpdateStatus($id, $status) {
+
         DB::table("orders")
             ->where("id", $id)
             ->update([
