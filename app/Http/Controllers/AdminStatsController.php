@@ -20,7 +20,7 @@ class AdminStatsController extends Controller
 
 
         // Kiểm tra và gán giá trị mặc định nếu result1 trống
-        $obj1 = $result1->isEmpty() ? (object)['month' => null, 'revenue' => 0] : $result1[0];
+        $obj1 = $result1->isEmpty() ? (object)['month' => null, 'year' => null, 'revenue' => 0] : $result1[0];
 
         foreach ($result1 as $i => $obj){
             if($obj1->revenue < $obj->revenue){
