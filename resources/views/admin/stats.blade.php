@@ -59,6 +59,7 @@
         <div class="container-fluid pt-4 px-4">
             <h3>Statistics </h3>
 
+        {{--REVENUE--}}
             <div class="row g-4">
 
                 <div class="col-sm-6 col-xl-3">
@@ -91,23 +92,19 @@
                     </div>
                 </div>
 
-
             </div>
 
+            {{--SPECIFIC REVENUE--}}
             <div class="row g-4 mt-2 col-6">
-
-                    <form class="input-group mb-4">
-                        <i class="bi bi-calendar-date input-group-text"></i>
-                        <input type="text" name="date" class="datepicker_input form-control" placeholder="Date" required aria-label="Date">
-                        <button type="submit" class="btn btn-primary ms-3">OK</button>
-                    </form>
-
+                <form class="input-group mb-4">
+                    <i class="bi bi-calendar-date input-group-text"></i>
+                    <input type="text" name="date" class="datepicker_input form-control" placeholder="Date" required aria-label="Date">
+                    <button type="submit" class="btn btn-primary ms-3">OK</button>
+                </form>
             </div>
 
             <div class="col-5">
-
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-
                     <div class="ms-3">
                         <p class="mb-2">Revenue on: {{$date}}</p>
                         <h6 class="mb-0">
@@ -116,7 +113,6 @@
                     </div>
                     <i class="fa fa-chart-area fa-3x text-primary"></i>
                 </div>
-
             </div>
 
         </div>
