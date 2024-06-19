@@ -52,7 +52,7 @@ class AdminStatsController extends Controller
             ->selectRaw("SUM(total) revenue")
             ->where("status", "RECEIVED")
             ->first();
-
+        $obj4->revenue == null ? $obj4->revenue = 0 : $obj4->revenue;
 
         return view ("admin.stats",[
             "obj1" => $obj1,
