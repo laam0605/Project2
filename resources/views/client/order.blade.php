@@ -57,6 +57,8 @@
                                 <a href="/order-details/{{$obj->id}}/{{$i + 1}}" class="btn btn-success btn-sm"><i class="far fa-eye" aria-hidden="true"></i> View Details</a> <br>
                                 @if($obj->status == "PENDING" || $obj->status == "CONFIRMED")
                                     <a onclick="return confirm('Are you sure to cancel the order?')" class="btn btn-danger btn-sm mt-1" href="/order-update-status/{{$obj->id}}/CANCELED">Cancel Order</a>
+                                @elseif($obj->status == "SHIPPING")
+                                    <a onclick="return confirm('Are you received the order?')" class="btn btn-primary btn-sm mt-1" href="/order-update-status/{{$obj->id}}/RECEIVED">Received Order</a>
                                 @else
 
                                 @endif
