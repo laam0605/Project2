@@ -211,8 +211,8 @@
                 @csrf
                 <div>
                     <label for="">Full Name: </label>
-                    <input style="font-weight: bold" type="text" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" disabled required>
-                    <input type="hidden" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}">
+                    <input style="font-weight: bold" type="text" name="fullName" placeholder="Enter your full name" id="check-input" value="{{\Illuminate\Support\Facades\Auth::user()->name}}" required>
+
                 </div>
             </div>
 
